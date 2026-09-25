@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <title>Créditos — Nicolás Cortez</title>
+    <meta
+      name="description"
+      content="Fuentes de los recursos visuales y sonoros del portfolio."
+    />
+    <meta name="theme-color" content="#080a07" />
+    <link rel="icon" href="assets/favicon.svg" />
+    <link rel="stylesheet" href="portfolio.css" />
+    <script defer src="js/config.js"></script>
+    <script defer src="liquid.js"></script>
+    <script defer src="interactions.js"></script>
+  </head>
+  <body>
+    <a class="skip" href="#contenido">Saltar al contenido</a>
+    <div class="bg" aria-hidden="true"><canvas id="liquid"></canvas></div>
+    <div class="veil" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="site">
+      <header class="topbar">
+        <div class="wrap">
+          <a class="brand" href="index.html"
+            >Nicolás Cortez<span aria-hidden="true">↗</span
+            ><small>DESARROLLO & SISTEMAS</small></a
+          ><button
+            class="menu-toggle"
+            aria-expanded="false"
+            aria-controls="nav"
+          >
+            Menú
+          </button>
+          <nav class="nav" id="nav" aria-label="Principal">
+            <a href="proyectos.html">Proyectos</a
+            ><a href="index.html#servicios">Servicios</a
+            ><a href="index.html#sobre-mi">Sobre mí</a
+            ><a href="index.html#contacto">Contacto</a>
+          </nav>
+          <a class="pill header-cta" href="index.html#contacto"
+            >Conversemos ↗</a
+          >
+        </div>
+      </header>
+      <main id="contenido" class="wrap legal">
+        <span class="eyebrow">Recursos & autoría</span>
+        <h1>Créditos.</h1>
+        <h2>Fotografía</h2>
+        <p>
+          Fotografías de Unsplash, incluidas localmente bajo su
+          <a href="https://unsplash.com/license">licencia</a>. Las imágenes son
+          ilustrativas de proyectos conceptuales: no acreditan productos a la
+          venta, colaboraciones ni identidad del músico. El archivo
+          <a href="data/assets.json">de fuentes</a> identifica cada recurso.
+        </p>
+        <h2>Audio</h2>
+        <p>
+          “Estudio de señal” es una muestra instrumental sintetizada por código
+          para probar este reproductor. No pertenece al catálogo de NOISOME ni
+          se atribuye a Nicolás. Se incluye el generador en
+          tools/generate-audio.py; no usa grabaciones o samples externos.
+        </p>
+        <h2>Diseño y código</h2>
+        <p>
+          Portfolio de Nicolás Cortez. Se conserva el shader líquido del archivo
+          original. Las cinco interfaces son conceptos funcionales, sin relación
+          comercial con entidades reales.
+        </p>
+        <h2>Referencias</h2>
+        <p>
+          AOI, adammount.org y Nick Ho Motorsports se consultaron como
+          referencias de composición y movimiento. No se incorporaron sus
+          fotografías, marcas o código.
+        </p>
+      </main>
+      <footer class="footer">
+        <div class="wrap">
+          <span>© 2026 Nicolás Cortez · Santiago, Chile</span
+          ><a href="terminos.html">Términos y condiciones ↗</a
+          ><button class="motion-button" aria-pressed="false">
+            Pausar fondo</button
+          ><a href="creditos.html">Créditos</a>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

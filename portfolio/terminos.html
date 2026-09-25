@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <title>Términos y condiciones — Nicolás Cortez</title>
+    <meta
+      name="description"
+      content="Finalidad del portfolio, recursos y datos almacenados localmente."
+    />
+    <meta name="theme-color" content="#080a07" />
+    <link rel="icon" href="assets/favicon.svg" />
+    <link rel="stylesheet" href="portfolio.css" />
+    <script defer src="js/config.js"></script>
+    <script defer src="liquid.js"></script>
+    <script defer src="interactions.js"></script>
+  </head>
+  <body>
+    <a class="skip" href="#contenido">Saltar al contenido</a>
+    <div class="bg" aria-hidden="true"><canvas id="liquid"></canvas></div>
+    <div class="veil" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="site">
+      <header class="topbar">
+        <div class="wrap">
+          <a class="brand" href="index.html"
+            >Nicolás Cortez<span aria-hidden="true">↗</span
+            ><small>DESARROLLO & SISTEMAS</small></a
+          ><button
+            class="menu-toggle"
+            aria-expanded="false"
+            aria-controls="nav"
+          >
+            Menú
+          </button>
+          <nav class="nav" id="nav" aria-label="Principal">
+            <a href="proyectos.html">Proyectos</a
+            ><a href="index.html#servicios">Servicios</a
+            ><a href="index.html#sobre-mi">Sobre mí</a
+            ><a href="index.html#contacto">Contacto</a>
+          </nav>
+          <a class="pill header-cta" href="index.html#contacto"
+            >Conversemos ↗</a
+          >
+        </div>
+      </header>
+      <main id="contenido" class="wrap legal">
+        <span class="eyebrow">Información del sitio</span>
+        <h1>Términos<br /><em>y condiciones.</em></h1>
+        <div id="terms-content" aria-live="polite">
+          <p>Cargando información…</p>
+        </div>
+        <noscript
+          ><p>
+            Consulta los términos en
+            <a href="data/terms.json">este archivo JSON</a>.
+          </p></noscript
+        >
+      </main>
+      <footer class="footer">
+        <div class="wrap">
+          <span>© 2026 Nicolás Cortez · Santiago, Chile</span
+          ><a href="terminos.html">Términos y condiciones ↗</a
+          ><button class="motion-button" aria-pressed="false">
+            Pausar fondo</button
+          ><a href="creditos.html">Créditos</a>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

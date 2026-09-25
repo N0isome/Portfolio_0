@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <title>Portfolio — Nicolás Cortez</title>
+    <meta
+      name="description"
+      content="Desarrollo web, automatización y soporte TI N2. Proyectos explorables de Nicolás Cortez en Santiago de Chile."
+    />
+    <meta name="theme-color" content="#080a07" />
+    <link rel="icon" href="assets/favicon.svg" />
+    <link rel="stylesheet" href="portfolio.css" />
+    <script defer src="js/config.js"></script>
+    <script defer src="liquid.js"></script>
+    <script defer src="interactions.js"></script>
+  </head>
+  <body>
+    <a class="skip" href="#contenido">Saltar al contenido</a>
+    <div class="bg" aria-hidden="true"><canvas id="liquid"></canvas></div>
+    <div class="veil" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="site">
+      <header class="topbar">
+        <div class="wrap">
+          <a class="brand" href="index.html"
+            >Nicolás Cortez<span aria-hidden="true">↗</span
+            ><small>DESARROLLO & SISTEMAS</small></a
+          ><button
+            class="menu-toggle"
+            aria-expanded="false"
+            aria-controls="nav"
+          >
+            Menú
+          </button>
+          <nav class="nav" id="nav" aria-label="Principal">
+            <a href="proyectos.html">Proyectos</a
+            ><a href="index.html#servicios">Servicios</a
+            ><a href="index.html#sobre-mi">Sobre mí</a
+            ><a href="index.html#contacto">Contacto</a>
+          </nav>
+          <a class="pill header-cta" href="index.html#contacto"
+            >Conversemos ↗</a
+          >
+        </div>
+      </header>
+      <main id="contenido">
+        <section class="hero wrap hairline">
+          <div class="hero-top">
+            <span class="eyebrow">Diseño, desarrollo & operación</span
+            ><span class="eyebrow">Santiago, Chile / 2026</span>
+          </div>
+          <h1>
+            Una buena idea.<br /><em>Un sistema que</em><br />la hace funcionar.
+          </h1>
+          <div class="hero-bottom">
+            <p>
+              Desarrollo web y automatización con criterio visual y experiencia
+              en soporte TI N2.
+            </p>
+            <a class="pill solid" href="#proyectos"
+              >Explorar proyectos <span aria-hidden="true">↓</span></a
+            ><span class="eyebrow"
+              >Nicolás Cortez<br />Analista Programador</span
+            >
+          </div>
+        </section>
+        <section class="section wrap" id="proyectos">
+          <div class="section-head">
+            <div>
+              <span class="eyebrow">Trabajo seleccionado</span>
+              <h2 class="section-title">Ideas en <em>acción.</em></h2>
+            </div>
+            <p>
+              Cinco conceptos funcionales para explorar diseño, lógica y
+              experiencia de uso. Prueba cada recorrido.
+            </p>
+          </div>
+          <div class="project-grid">
+            <article class="project-card">
+              <a href="demo-artista.html"
+                ><div class="project-media">
+                  <img
+                    src="assets/preview-artista.webp"
+                    alt="Portada ilustrada del proyecto NOISOME / sesiones"
+                    width="1280"
+                    height="900"
+                    loading="lazy"
+                  /><span class="open-label">Explorar proyecto ↗</span>
+                </div>
+                <div class="project-info">
+                  <small>Música e identidad · Concepto funcional</small>
+                  <h3>NOISOME / sesiones</h3>
+                  <p>
+                    Una experiencia editorial donde escuchar, explorar y
+                    coleccionar conviven.
+                  </p>
+                  <span class="tags"
+                    >Reproducción real · Merch · Carrito local</span
+                  >
+                </div></a
+              >
+            </article>
+            <article class="project-card">
+              <a href="demo-tienda.html"
+                ><div class="project-media">
+                  <img
+                    src="assets/preview-tienda.webp"
+                    alt="Portada ilustrada del proyecto NORTH / OBJECTS"
+                    width="1280"
+                    height="900"
+                    loading="lazy"
+                  /><span class="open-label">Explorar proyecto ↗</span>
+                </div>
+                <div class="project-info">
+                  <small>Comercio digital · Concepto funcional</small>
+                  <h3>NORTH / OBJECTS</h3>
+                  <p>
+                    Del descubrimiento al resumen de compra, con fotografía y
+                    decisiones claras.
+                  </p>
+                  <span class="tags"
+                    >Catálogo · Filtros · Checkout demostrativo</span
+                  >
+                </div></a
+              >
+            </article>
+            <article class="project-card">
+              <a href="demo-dental.html"
+                ><div class="project-media">
+                  <img
+                    src="assets/preview-dental.webp"
+                    alt="Portada ilustrada del proyecto Clara / agenda"
+                    width="1280"
+                    height="900"
+                    loading="lazy"
+                  /><span class="open-label">Explorar proyecto ↗</span>
+                </div>
+                <div class="project-info">
+                  <small>Herramientas de gestión · Concepto funcional</small>
+                  <h3>Clara / agenda</h3>
+                  <p>
+                    Organizar la semana y reservar sin cruzar horarios de un
+                    profesional.
+                  </p>
+                  <span class="tags"
+                    >Fechas reales · Validación · Persistencia local</span
+                  >
+                </div></a
+              >
+            </article>
+            <article class="project-card">
+              <a href="demo-cotizador.html"
+                ><div class="project-media">
+                  <img
+                    src="assets/preview-cotizador.webp"
+                    alt="Portada ilustrada del proyecto NQ / cotizaciones"
+                    width="1280"
+                    height="900"
+                    loading="lazy"
+                  /><span class="open-label">Explorar proyecto ↗</span>
+                </div>
+                <div class="project-info">
+                  <small>Automatización · Concepto funcional</small>
+                  <h3>NQ / cotizaciones</h3>
+                  <p>
+                    Convertir partidas y reglas de cálculo en propuestas claras
+                    y recuperables.
+                  </p>
+                  <span class="tags">Descuentos · Impuestos · Impresión</span>
+                </div></a
+              >
+            </article>
+            <article class="project-card">
+              <a href="demo-institucional.html"
+                ><div class="project-media">
+                  <img
+                    src="assets/preview-institucional.webp"
+                    alt="Portada ilustrada del proyecto FuturoUno / portal"
+                    width="1280"
+                    height="900"
+                    loading="lazy"
+                  /><span class="open-label">Explorar proyecto ↗</span>
+                </div>
+                <div class="project-info">
+                  <small
+                    >Arquitectura de información · Concepto funcional</small
+                  >
+                  <h3>FuturoUno / portal</h3>
+                  <p>
+                    Servicios fáciles de encontrar y contenidos que se pueden
+                    editar y recuperar.
+                  </p>
+                  <span class="tags">Buscador · Servicios · Editor local</span>
+                </div></a
+              >
+            </article>
+          </div>
+        </section>
+        <section class="section wrap hairline" id="servicios">
+          <div class="section-head">
+            <div>
+              <span class="eyebrow">En qué puedo ayudarte</span>
+              <h2 class="section-title">
+                Diseñar. Resolver.<br /><em>Hacerlo simple.</em>
+              </h2>
+            </div>
+            <p>
+              El alcance nace del problema. Desde una web hasta una herramienta
+              para tu operación.
+            </p>
+          </div>
+          <div class="services">
+            <details>
+              <summary>Webs con identidad</summary>
+              <p>
+                Landings y sitios corporativos con diseño responsive, navegación
+                clara y una implementación ligera.
+              </p>
+            </details>
+            <details>
+              <summary>Herramientas & automatización</summary>
+              <p>
+                Paneles de gestión, cotizadores, procesos repetitivos,
+                validación de datos y reportes que ahorran trabajo manual.
+              </p>
+            </details>
+            <details>
+              <summary>Soporte & continuidad TI</summary>
+              <p>
+                Diagnóstico de incidentes, aplicaciones corporativas, Windows,
+                Microsoft 365 y despliegues, con experiencia en soporte N2.
+              </p>
+            </details>
+          </div>
+        </section>
+        <section class="section wrap hairline" id="sobre-mi">
+          <span class="eyebrow">La persona detrás del código</span>
+          <div class="about-grid">
+            <h2 class="about-statement">
+              Pienso en quien<br />lo usa.<br /><em
+                >Y en quien lo<br />mantiene.</em
+              >
+            </h2>
+            <div class="profile-card">
+              <h3>Nicolás Cortez</h3>
+              <p>
+                Analista Programador y soporte TI N2. Conecto el desarrollo web
+                con la experiencia de resolver problemas en operación.
+              </p>
+              <div class="capabilities">
+                <span>Desarrollo web</span><span>Automatización</span
+                ><span>Microsoft 365</span><span>Jira & Lansweeper</span>
+              </div>
+              <p style="margin-top: 28px; margin-bottom: 0">
+                Santiago, Chile · Trabajo remoto
+              </p>
+            </div>
+          </div>
+        </section>
+        <section class="contact wrap" id="contacto">
+          <span class="eyebrow">Hablemos de tu proyecto</span>
+          <h2 class="section-title">
+            ¿Qué necesitas<br /><em>hacer funcionar?</em>
+          </h2>
+          <div class="contact-links">
+            <a class="pill solid" href="mailto:ni.cortez@duocuc.cl"
+              >Escríbeme un correo ↗</a
+            ><a
+              class="pill"
+              href="https://github.com/N0isome"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Ver GitHub ↗</a
+            ><button class="pill" data-whatsapp>WhatsApp ↗</button>
+          </div>
+        </section>
+      </main>
+      <footer class="footer">
+        <div class="wrap">
+          <span>© 2026 Nicolás Cortez · Santiago, Chile</span
+          ><a href="terminos.html">Términos y condiciones ↗</a
+          ><button class="motion-button" aria-pressed="false">
+            Pausar fondo</button
+          ><a href="creditos.html">Créditos</a>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

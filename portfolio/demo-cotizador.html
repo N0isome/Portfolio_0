@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Proyecto conceptual de Nicolás Cortez. NQ / Cotizaciones. Datos ficticios guardados solo en este navegador."
+    />
+    <title>NQ / Cotizaciones — Proyecto de Nicolás Cortez</title>
+    <link rel="icon" href="assets/favicon.svg" />
+    <link rel="stylesheet" href="demo.css" />
+    <script type="module" src="js/quote.js"></script>
+  </head>
+  <body class="quote">
+    <a class="skip" href="#contenido">Saltar al contenido</a>
+    <div class="demo-strip">
+      <a href="proyectos.html">← Portfolio / Nicolás Cortez</a
+      ><span
+        >Concepto funcional · Solo datos ficticios · Guardado en este
+        navegador</span
+      >
+    </div>
+    <header class="demo-header">
+      <div class="container header-row between">
+        <a class="logo" href="demo-cotizador.html">NQ / Cotizaciones</a
+        ><span class="small muted"
+          >Propuestas claras, cálculos consistentes.</span
+        >
+      </div>
+    </header>
+    <main class="container" id="contenido">
+      <noscript
+        ><p class="notice">
+          Activa JavaScript para probar los controles y el guardado local de
+          este proyecto.
+        </p></noscript
+      >
+      <section class="workspace-head">
+        <span class="eyebrow">De una idea a una propuesta</span>
+        <h1>Todo suma.<br />Que se entienda.</h1>
+        <p>
+          Prepara, guarda y recupera cotizaciones de prueba. Valores enteros en
+          pesos chilenos.
+        </p>
+      </section>
+      <p class="notice no-print">
+        Regla de esta demo: subtotal → descuento proporcional → impuesto por
+        partida → cargo no gravado. Redondeo al peso por partida. No constituye
+        factura ni asesoría tributaria.
+      </p>
+      <form id="quote-form" class="quote-form">
+        <div class="surface fields">
+          <label
+            >Número<input
+              id="quote-number"
+              required
+              maxlength="32"
+              value="COT-1001" /></label
+          ><label>Fecha<input id="quote-date" type="date" required /></label
+          ><label
+            >Emisor ficticio<input
+              id="quote-company"
+              required
+              maxlength="100"
+              value="Estudio Demo" /></label
+          ><label
+            >Cliente ficticio<input
+              id="quote-client"
+              required
+              maxlength="100"
+              value="Cliente Ejemplo"
+          /></label>
+        </div>
+        <section class="surface">
+          <h2 style="font-size: 27px">Partidas</h2>
+          <div id="quote-items"></div>
+          <button
+            type="button"
+            class="btn"
+            id="add-item"
+            style="margin-top: 20px"
+          >
+            + Agregar partida
+          </button>
+        </section>
+        <div class="split">
+          <div class="surface fields">
+            <label
+              >Descuento (CLP)<input
+                id="discount"
+                type="number"
+                min="0"
+                max="1000000000"
+                step="1"
+                value="0"
+                required /></label
+            ><label
+              >Cargo no gravado (CLP)<input
+                id="charge"
+                type="number"
+                min="0"
+                max="1000000000"
+                step="1"
+                value="0"
+                required /></label
+            ><label class="wide"
+              >Condiciones / nota<textarea
+                id="quote-note"
+                rows="4"
+                maxlength="2000"
+              >
+Cotización demostrativa. Vigencia: 15 días.</textarea>
+            </label>
+          </div>
+          <div class="surface">
+            <div class="totals" id="quote-totals" aria-live="polite"></div>
+          </div>
+        </div>
+        <p class="status" id="quote-status" role="status"></p>
+        <div class="row">
+          <button type="submit" class="btn primary">Guardar cotización</button
+          ><button type="button" class="btn" id="print-quote">
+            Imprimir / PDF</button
+          ><button type="button" class="btn" id="new-quote">
+            Nueva cotización
+          </button>
+        </div>
+        <div class="surface">
+          <h2 style="font-size: 27px">Guardadas en este navegador</h2>
+          <div class="row">
+            <label style="flex: 1; min-width: 160px"
+              >Cotización<select id="saved-quotes">
+                <option value="">Seleccionar</option>
+              </select></label
+            ><button type="button" class="btn" id="load-quote">Recuperar</button
+            ><button type="button" class="btn danger" id="delete-quote">
+              Eliminar
+            </button>
+          </div>
+        </div>
+      </form>
+      <section class="print-only" id="print-sheet"></section>
+    </main>
+    <footer class="demo-footer">
+      <div class="container">
+        <span>Proyecto conceptual. Sin operaciones reales.</span>
+        <div>
+          <a href="proyectos.html">Volver a proyectos</a> ·
+          <a href="terminos.html">Términos</a> ·
+          <a href="creditos.html">Créditos</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

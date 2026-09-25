@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Proyecto conceptual de Nicolás Cortez. NOISOME / Sesiones. Datos ficticios guardados solo en este navegador."
+    />
+    <title>NOISOME / Sesiones — Proyecto de Nicolás Cortez</title>
+    <link rel="icon" href="assets/favicon.svg" />
+    <link rel="stylesheet" href="demo.css" />
+    <script type="module" src="js/commerce.js"></script>
+  </head>
+  <body class="artist">
+    <a class="skip" href="#contenido">Saltar al contenido</a>
+    <div class="demo-strip">
+      <a href="proyectos.html">← Portfolio / Nicolás Cortez</a
+      ><span
+        >Concepto funcional · Solo datos ficticios · Guardado en este
+        navegador</span
+      >
+    </div>
+    <header class="demo-header">
+      <div class="container header-row between">
+        <a class="logo" href="demo-artista.html">NOISOME</a>
+        <nav aria-label="Artista">
+          <a href="#music">Escuchar</a><a href="#merch">Objetos</a
+          ><a href="#archivo">Archivo</a>
+        </nav>
+        <button class="btn" id="cart-open">
+          Selección (<span id="cart-count">0</span>)
+        </button>
+      </div>
+    </header>
+    <main class="container" id="contenido">
+      <noscript
+        ><p class="notice">
+          Activa JavaScript para probar los controles y el guardado local de
+          este proyecto.
+        </p></noscript
+      >
+      <section class="artist-hero">
+        <div>
+          <span class="eyebrow">Sonido / Espacio / Identidad</span>
+          <h1>Fuera<br />de <em>órbita.</em></h1>
+          <p>
+            Una exploración entre música y cultura visual. Concepto editorial
+            para un universo sonoro propio.
+          </p>
+          <a class="btn accent" href="#music">Entrar en la sesión ↓</a>
+        </div>
+        <img
+          src="assets/stage.webp"
+          alt="Fotografía de un concierto, referencia de ambiente; no retrata a NOISOME"
+          width="1400"
+          height="1400"
+          fetchpriority="high"
+        />
+      </section>
+      <section class="section" id="music">
+        <span class="eyebrow">Sesión de prueba</span>
+        <div class="audio-layout">
+          <img
+            src="assets/studio.webp"
+            alt="Equipamiento de estudio de grabación"
+            width="200"
+            height="200"
+            loading="lazy"
+          />
+          <div>
+            <h2 style="font-size: 32px; margin-bottom: 10px">
+              Estudio de señal
+            </h2>
+            <p class="small">
+              Muestra sintetizada para esta demo. No es un lanzamiento de
+              NOISOME.
+            </p>
+            <audio
+              controls
+              preload="metadata"
+              aria-label="Reproducir Estudio de señal"
+            >
+              <source src="assets/estudio-senal.wav" type="audio/wav" />
+              Tu navegador no admite audio.
+              <a href="assets/estudio-senal.wav">Descargar muestra</a>.
+            </audio>
+            <p class="small" id="audio-status" role="status"></p>
+          </div>
+        </div>
+      </section>
+      <section class="section" id="merch">
+        <div class="row between">
+          <h2>Objetos de sesión.</h2>
+          <span id="result-count" class="small"></span>
+        </div>
+        <p>
+          Selección conceptual. Fotografías ilustrativas, sin stock ni ventas
+          reales.
+        </p>
+        <div class="products" id="products"></div>
+      </section>
+      <section class="section" id="archivo">
+        <span class="eyebrow">Archivo visual</span>
+        <p class="editorial-note">
+          El silencio también<br />es parte del sonido.
+        </p>
+        <div class="photo-banner">
+          <img
+            src="assets/studio.webp"
+            alt="Mesa de trabajo de un estudio musical"
+            width="1400"
+            height="700"
+            loading="lazy"
+          />
+        </div>
+        <p class="small" style="margin-top: 18px">
+          Fotografía de ambiente. Catálogo musical y material propio pendientes
+          de incorporar.
+        </p>
+      </section>
+    </main>
+    <footer class="demo-footer">
+      <div class="container">
+        <span>Proyecto conceptual. Sin operaciones reales.</span>
+        <div>
+          <a href="proyectos.html">Volver a proyectos</a> ·
+          <a href="terminos.html">Términos</a> ·
+          <a href="creditos.html">Créditos</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

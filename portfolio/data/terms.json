@@ -1,0 +1,25 @@
+{
+  "updated": "25 de septiembre de 2026",
+  "sections": [
+    {
+      "title": "Un espacio para mostrar trabajo",
+      "body": "Este portfolio presenta las capacidades de Nicolás Cortez en desarrollo web, automatización y soporte TI. Los cinco proyectos son conceptos demostrativos, no encargos de clientes ni servicios operativos."
+    },
+    {
+      "title": "Explorar no es contratar",
+      "body": "Los carritos y el cierre de compra son demostrativos. No se procesan pagos, generan pedidos, envían solicitudes ni confirman reservas reales. El alcance, precio, plazos y condiciones de cualquier servicio se acuerdan por separado."
+    },
+    {
+      "title": "Datos en tu navegador",
+      "body": "Los carritos, reservas ficticias, cotizaciones y cambios del editor se guardan con localStorage únicamente en este navegador. No son una base compartida ni un sistema con autenticación. Usa datos ficticios. Puedes borrarlos desde la configuración del navegador. Si el almacenamiento está bloqueado se informa el error y los cambios duran solo durante la sesión."
+    },
+    {
+      "title": "Materiales y enlaces",
+      "body": "El código y composición se presentan como trabajo de portfolio. Fotografías de Unsplash y muestra sonora generada para esta demostración: consulta Créditos para conocer sus fuentes. Las fotografías no representan al autor del portfolio ni implican respaldo de las personas retratadas. Los enlaces externos están sujetos a las condiciones de sus respectivos sitios."
+    },
+    {
+      "title": "Privacidad y contacto",
+      "body": "Este sitio no incorpora formularios de envío, analítica ni rastreadores propios. El alojamiento puede registrar solicitudes técnicas según sus condiciones. El correo abre tu aplicación de email y WhatsApp, cuando se configure, abre un sitio externo; no envían mensajes automáticamente. Contacto: perfil GitHub N0isome, https://github.com/N0isome. El correo conservado del archivo original y el número de WhatsApp requieren confirmación del titular antes de publicar."
+    }
+  ]
+}

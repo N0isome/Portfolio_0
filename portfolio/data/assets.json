@@ -1,0 +1,44 @@
+[
+  {
+    "file": "assets/stage.webp",
+    "source": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1400&q=80&fm=webp&fit=crop",
+    "license": "https://unsplash.com/license",
+    "use": "Fotografía ilustrativa; sin asociación con marcas o autor del portfolio."
+  },
+  {
+    "file": "assets/chair.webp",
+    "source": "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=900&q=78&fm=webp&fit=crop",
+    "license": "https://unsplash.com/license",
+    "use": "Fotografía ilustrativa; sin asociación con marcas o autor del portfolio."
+  },
+  {
+    "file": "assets/lamp.webp",
+    "source": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=900&q=78&fm=webp&fit=crop",
+    "license": "https://unsplash.com/license",
+    "use": "Fotografía ilustrativa; sin asociación con marcas o autor del portfolio."
+  },
+  {
+    "file": "assets/headphones.webp",
+    "source": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=900&q=78&fm=webp&fit=crop",
+    "license": "https://unsplash.com/license",
+    "use": "Fotografía ilustrativa; sin asociación con marcas o autor del portfolio."
+  },
+  {
+    "file": "assets/shirt.webp",
+    "source": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=900&q=78&fm=webp&fit=crop",
+    "license": "https://unsplash.com/license",
+    "use": "Fotografía ilustrativa; sin asociación con marcas o autor del portfolio."
+  },
+  {
+    "file": "assets/vinyl.webp",
+    "source": "https://images.unsplash.com/photo-1539375665275-f9de415ef9ac?w=900&q=78&fm=webp&fit=crop",
+    "license": "https://unsplash.com/license",
+    "use": "Fotografía ilustrativa; sin asociación con marcas o autor del portfolio."
+  },
+  {
+    "file": "assets/studio.webp",
+    "source": "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=1400&q=78&fm=webp&fit=crop",
+    "license": "https://unsplash.com/license",
+    "use": "Fotografía ilustrativa; sin asociación con marcas o autor del portfolio."
+  }
+]

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Proyecto conceptual de Nicolás Cortez. Clara / Agenda. Datos ficticios guardados solo en este navegador."
+    />
+    <title>Clara / Agenda — Proyecto de Nicolás Cortez</title>
+    <link rel="icon" href="assets/favicon.svg" />
+    <link rel="stylesheet" href="demo.css" />
+    <script type="module" src="js/dental.js"></script>
+  </head>
+  <body class="dental">
+    <a class="skip" href="#contenido">Saltar al contenido</a>
+    <div class="demo-strip">
+      <a href="proyectos.html">← Portfolio / Nicolás Cortez</a
+      ><span
+        >Concepto funcional · Solo datos ficticios · Guardado en este
+        navegador</span
+      >
+    </div>
+    <header class="demo-header">
+      <div class="container header-row between">
+        <a class="logo" href="demo-dental.html"
+          >clara<span style="color: #8872c6">✦</span></a
+        ><span class="muted small">Agenda del equipo / Entorno de práctica</span
+        ><button class="btn primary" id="new-appointment">
+          + Nueva reserva
+        </button>
+      </div>
+    </header>
+    <main class="container" id="contenido">
+      <noscript
+        ><p class="notice">
+          Activa JavaScript para probar los controles y el guardado local de
+          este proyecto.
+        </p></noscript
+      >
+      <section class="workspace-head">
+        <span class="eyebrow">Organiza el día, cuida el tiempo</span>
+        <h1>Tu semana, más clara.</h1>
+        <p>
+          Reservas por profesional, sin cruces de horarios. Utiliza nombres y
+          datos ficticios.
+        </p>
+      </section>
+      <div class="stats">
+        <div class="stat">
+          <strong id="week-count">0</strong><span>Reservas de la semana</span>
+        </div>
+        <div class="stat">
+          <strong id="confirmed-count">0</strong><span>Confirmadas (demo)</span>
+        </div>
+        <div class="stat">
+          <strong>2</strong><span>Profesionales ficticios</span>
+        </div>
+      </div>
+      <div class="week-tools">
+        <strong class="week-label" id="week-label"></strong
+        ><button class="btn" id="previous" aria-label="Semana anterior">
+          ←</button
+        ><button class="btn" id="today">Esta semana</button
+        ><button class="btn" id="next" aria-label="Semana siguiente">→</button>
+      </div>
+      <div class="filters">
+        <label
+          >Profesional<select id="professional-filter">
+            <option value="all">Todos</option>
+            <option>Dra. Salas</option>
+            <option>Dr. Rojas</option>
+          </select></label
+        ><label
+          >Estado<select id="state-filter">
+            <option value="all">Todos</option>
+            <option>Pendiente</option>
+            <option>Confirmada</option>
+            <option>Cancelada</option>
+          </select></label
+        >
+      </div>
+      <div class="week-list" id="week-list"></div>
+      <p class="status" id="agenda-status" role="status"></p>
+    </main>
+    <footer class="demo-footer">
+      <div class="container">
+        <span>Proyecto conceptual. Sin operaciones reales.</span>
+        <div>
+          <a href="proyectos.html">Volver a proyectos</a> ·
+          <a href="terminos.html">Términos</a> ·
+          <a href="creditos.html">Créditos</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

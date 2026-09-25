@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Proyecto conceptual de Nicolás Cortez. NORTH / OBJECTS. Datos ficticios guardados solo en este navegador."
+    />
+    <title>NORTH / OBJECTS — Proyecto de Nicolás Cortez</title>
+    <link rel="icon" href="assets/favicon.svg" />
+    <link rel="stylesheet" href="demo.css" />
+    <script type="module" src="js/commerce.js"></script>
+  </head>
+  <body class="shop">
+    <a class="skip" href="#contenido">Saltar al contenido</a>
+    <div class="demo-strip">
+      <a href="proyectos.html">← Portfolio / Nicolás Cortez</a
+      ><span
+        >Concepto funcional · Solo datos ficticios · Guardado en este
+        navegador</span
+      >
+    </div>
+    <header class="demo-header">
+      <div class="container header-row between">
+        <a class="logo" href="demo-tienda.html">NORTH / OBJECTS</a>
+        <nav aria-label="Tienda">
+          <a href="#catalogo">Colección</a><a href="#filosofia">La selección</a>
+        </nav>
+        <button class="btn" id="cart-open">
+          Carrito (<span id="cart-count">0</span>)
+        </button>
+      </div>
+    </header>
+    <main class="container" id="contenido">
+      <noscript
+        ><p class="notice">
+          Activa JavaScript para probar los controles y el guardado local de
+          este proyecto.
+        </p></noscript
+      >
+      <section class="intro">
+        <div>
+          <span class="eyebrow">Objetos cotidianos / Otra mirada</span>
+          <h1>Menos objetos.<br />Más intención.</h1>
+        </div>
+        <p>
+          Una colección para los espacios donde trabajas, escuchas y creas.
+          Catálogo conceptual, pensado para explorar sin prisa.
+        </p>
+      </section>
+      <div class="photo-banner">
+        <img
+          src="assets/lamp.webp"
+          alt="Lámpara en un espacio interior"
+          width="1400"
+          height="600"
+          fetchpriority="high"
+        /><span class="caption">Forma. Función. Todos los días.</span>
+      </div>
+      <section class="section" id="catalogo">
+        <div class="row between">
+          <h2>La colección</h2>
+          <span id="result-count" class="small" role="status"></span>
+        </div>
+        <div class="filters" aria-label="Filtrar catálogo">
+          <button class="btn" data-filter="Todo" aria-pressed="true">
+            Todo</button
+          ><button class="btn" data-filter="Hogar" aria-pressed="false">
+            Hogar</button
+          ><button class="btn" data-filter="Audio" aria-pressed="false">
+            Audio
+          </button>
+        </div>
+        <div class="products" id="products"></div>
+      </section>
+      <section class="section" id="filosofia">
+        <span class="eyebrow">La selección</span>
+        <h2>Lo esencial también<br />puede tener carácter.</h2>
+        <p style="max-width: 640px">
+          Esta experiencia une fotografías de producto, un catálogo compacto y
+          un recorrido de compra claro. Puedes filtrar, revisar detalles,
+          ajustar cantidades y llegar al resumen, sin introducir datos
+          personales ni realizar pagos.
+        </p>
+      </section>
+    </main>
+    <footer class="demo-footer">
+      <div class="container">
+        <span>Proyecto conceptual. Sin operaciones reales.</span>
+        <div>
+          <a href="proyectos.html">Volver a proyectos</a> ·
+          <a href="terminos.html">Términos</a> ·
+          <a href="creditos.html">Créditos</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

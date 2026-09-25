@@ -1,0 +1,10 @@
+FUTUROUNO — FORMULARIO DE EJEMPLO
+No oficial. No enviar datos personales.
+
+Nombre ficticio:
+Tipo de solicitud de prueba:
+Descripción ficticia:
+Fecha de ejemplo:
+
+Este archivo demuestra una descarga de documento.
+No existe una institución real, envío ni recepción de solicitudes.

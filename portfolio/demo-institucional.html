@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Proyecto conceptual de Nicolás Cortez. FuturoUno / Portal. Datos ficticios guardados solo en este navegador."
+    />
+    <title>FuturoUno / Portal — Proyecto de Nicolás Cortez</title>
+    <link rel="icon" href="assets/favicon.svg" />
+    <link rel="stylesheet" href="demo.css" />
+    <script type="module" src="js/portal.js"></script>
+  </head>
+  <body class="portal">
+    <a class="skip" href="#contenido">Saltar al contenido</a>
+    <div class="demo-strip">
+      <a href="proyectos.html">← Portfolio / Nicolás Cortez</a
+      ><span
+        >Concepto funcional · Solo datos ficticios · Guardado en este
+        navegador</span
+      >
+    </div>
+    <header class="demo-header">
+      <div class="container header-row between">
+        <a class="logo" href="demo-institucional.html"
+          >Futuro<span style="color: #a46139">Uno.</span></a
+        >
+        <nav aria-label="Portal">
+          <a href="#servicios">Servicios</a><a href="#ayuda">Ayuda</a
+          ><a href="#editor">Editor de prueba</a>
+        </nav>
+      </div>
+    </header>
+    <main class="container" id="contenido">
+      <noscript
+        ><p class="notice">
+          Activa JavaScript para probar los controles y el guardado local de
+          este proyecto.
+        </p></noscript
+      >
+      <section class="intro">
+        <div>
+          <span class="eyebrow">Un punto de encuentro</span>
+          <h1 id="hero-title">Lo que necesitas.<br />Más cerca.</h1>
+          <p id="hero-copy" style="margin-top: 28px">
+            Información clara y servicios fáciles de encontrar. Un concepto de
+            portal institucional centrado en las personas.
+          </p>
+          <a class="btn primary" href="#servicios">Explorar servicios ↓</a>
+        </div>
+        <div class="portal-hero-card">
+          <span class="eyebrow">Diseñado para orientarte</span>
+          <h2>Menos vueltas.<br />Más claridad.</h2>
+          <p id="banner-copy">
+            Encuentra documentos, conoce los pasos y resuelve tus dudas desde un
+            mismo lugar.
+          </p>
+          <a href="#ayuda">Visitar el centro de ayuda ↗</a>
+        </div>
+      </section>
+      <section class="section" id="servicios">
+        <div class="row between">
+          <h2>¿En qué podemos ayudarte?</h2>
+          <span id="service-count" class="small" role="status"></span>
+        </div>
+        <label style="max-width: 640px"
+          >Buscar un servicio<input
+            type="search"
+            id="service-search"
+            placeholder="Certificados, formularios, seguridad…"
+        /></label>
+        <div class="filters">
+          <button class="btn" data-category="Todos" aria-pressed="true">
+            Todos</button
+          ><button class="btn" data-category="Documentos" aria-pressed="false">
+            Documentos</button
+          ><button class="btn" data-category="Ayuda" aria-pressed="false">
+            Ayuda
+          </button>
+        </div>
+        <div class="service-grid" id="services-grid"></div>
+      </section>
+      <section class="section faq" id="ayuda">
+        <span class="eyebrow">Centro de ayuda</span>
+        <h2>Preguntas, con respuesta.</h2>
+        <details>
+          <summary>¿Este portal pertenece a una institución real?</summary>
+          <p>
+            No. FuturoUno es un proyecto conceptual para demostrar arquitectura
+            de información y edición de contenidos.
+          </p>
+        </details>
+        <details>
+          <summary>¿Puedo solicitar trámites aquí?</summary>
+          <p>
+            Puedes revisar los pasos y descargar un formulario de ejemplo. No se
+            reciben solicitudes ni se emiten certificados.
+          </p>
+        </details>
+        <details>
+          <summary>¿Dónde se guardan los cambios del editor?</summary>
+          <p>
+            Solo en este navegador. No se publican para otros visitantes. Una
+            versión productiva necesitaría autenticación, permisos y un backend.
+          </p>
+        </details>
+      </section>
+      <section class="section" id="editor">
+        <span class="eyebrow">Explora la gestión de contenido</span>
+        <h2>Prueba una edición.</h2>
+        <p>
+          Editor local, sin autenticación. Los cambios se reflejan arriba y
+          permanecen tras recargar este navegador.
+        </p>
+        <form id="editor-form" class="surface fields">
+          <label class="wide"
+            >Título principal<input
+              id="edit-title"
+              maxlength="100"
+              required /></label
+          ><label class="wide"
+            >Presentación<textarea
+              id="edit-copy"
+              maxlength="500"
+              required
+              rows="3"
+            ></textarea></label
+          ><label class="wide"
+            >Texto del destacado<textarea
+              id="edit-banner"
+              maxlength="300"
+              required
+              rows="3"
+            ></textarea>
+          </label>
+          <div class="row wide">
+            <button class="btn primary" type="submit">
+              Guardar cambios locales</button
+            ><button class="btn" id="reset-editor" type="button">
+              Restaurar textos iniciales
+            </button>
+          </div>
+          <p id="editor-status" class="status wide" role="status"></p>
+        </form>
+      </section>
+    </main>
+    <footer class="demo-footer">
+      <div class="container">
+        <span>Proyecto conceptual. Sin operaciones reales.</span>
+        <div>
+          <a href="proyectos.html">Volver a proyectos</a> ·
+          <a href="terminos.html">Términos</a> ·
+          <a href="creditos.html">Créditos</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
