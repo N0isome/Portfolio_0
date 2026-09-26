@@ -1,159 +1,508 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta
-      name="description"
-      content="Proyecto conceptual de Nicolás Cortez. FuturoUno / Portal. Datos ficticios guardados solo en este navegador."
-    />
-    <title>FuturoUno / Portal — Proyecto de Nicolás Cortez</title>
-    <link rel="icon" href="assets/favicon.svg" />
-    <link rel="stylesheet" href="demo.css" />
-    <script type="module" src="js/portal.js"></script>
-  </head>
-  <body class="portal">
-    <a class="skip" href="#contenido">Saltar al contenido</a>
-    <div class="demo-strip">
-      <a href="proyectos.html">← Portfolio / Nicolás Cortez</a
-      ><span
-        >Concepto funcional · Solo datos ficticios · Guardado en este
-        navegador</span
-      >
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="description" content="FuturoUno — panel de servicios ciudadanos. Proyecto conceptual, datos ficticios guardados solo en este navegador." />
+<title>FuturoUno — Panel de servicios</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>&#127793;</text></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* Fondos y contenedores limpios */
+    --bg: #F8FAFC; 
+    --panel: #FFFFFF; 
+    --cream: #F1F5F9; 
+    --cream-soft: #F8FAFC;
+    
+    /* Tonos celestes para el Hero y badges */
+    --mint-pale: #E0F2FE; 
+    --mint-pale-2: #BAE6FD; 
+    
+    /* Textos (Slate / Pizarra) para alta legibilidad */
+    --ink: #0F172A; 
+    --ink-soft: #475569; 
+    --ink-faint: #94A3B8; 
+    
+    /* Azules profundos para secciones de peso (footer, bandas) */
+    --teal-deep: #0369A1; 
+    --teal-deep-2: #075985; 
+    
+    /* Color principal de acción (Botones y enlaces) */
+    --mint: #0284C7; 
+    --mint-ink: #FFFFFF; 
+    --mint-accent: #38BDF8; 
+    
+    /* Color de acento cálido (Ámbar) para notificaciones/dots */
+    --coral: #F59E0B; 
+    
+    /* Bordes suaves */
+    --border: #E2E8F0; 
+  }
+  /* Palette stays white regardless of the viewer's system theme, per explicit request */
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg: #F8FAFC; 
+      --panel: #FFFFFF; 
+      --cream: #F1F5F9; 
+      --cream-soft: #F8FAFC;
+      --mint-pale: #E0F2FE; 
+      --mint-pale-2: #BAE6FD; 
+      --ink: #0F172A; 
+      --ink-soft: #475569; 
+      --ink-faint: #94A3B8; 
+      --teal-deep: #0369A1; 
+      --teal-deep-2: #075985;
+      --mint: #0284C7; 
+      --mint-ink: #FFFFFF;
+      --mint-accent: #38BDF8;
+      --coral: #F59E0B;
+      --border: #E2E8F0;
+    }
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth; scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px);}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:"Inter",system-ui,sans-serif; line-height:1.6;
+    padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);}
+  a{color:inherit; text-decoration:none;}
+  button{font-family:inherit;}
+  h1,h2,h3{font-family:"Baloo 2",system-ui,sans-serif; margin:0; font-weight:700;}
+  .skip{position:absolute; left:-999px; top:0; background:var(--ink); color:#fff; padding:.6em 1em; z-index:200;}
+  .skip:focus{left:1em; top:calc(env(safe-area-inset-top,0px) + 1em);}
+  .wrap{max-width:1100px; margin:0 auto; padding:0 24px;}
+  section{padding:60px 0;}
+
+  .utility{background:var(--cream); font-size:.78rem; color:var(--ink-soft);}
+  .utility .wrap{display:flex; justify-content:space-between; gap:1em; padding:.55em 0; flex-wrap:wrap;}
+  .utility a:hover{color:var(--ink);}
+
+  header.site{position:sticky; top:env(safe-area-inset-top,0px); z-index:20; background:var(--bg); border-bottom:1px solid var(--border);}
+  header.site .wrap{display:flex; align-items:center; gap:32px; padding:14px 24px;}
+  .logo{display:flex; align-items:center; gap:9px; font-family:"Baloo 2"; font-weight:800; font-size:1.3rem; color:var(--ink);}
+  .logo .mark{width:28px; height:28px;}
+  nav.mainnav ul{list-style:none; display:flex; gap:26px; margin:0; padding:0; font-size:.92rem; font-weight:600; color:var(--ink-soft);}
+  nav.mainnav a:hover{color:var(--ink);}
+  .head-actions{margin-left:auto; display:flex; align-items:center; gap:18px; font-size:.88rem; font-weight:600;}
+  .pill-btn{display:inline-flex; align-items:center; gap:6px; border-radius:999px; font-weight:700; font-size:.86rem; padding:.7em 1.4em; cursor:pointer; border:1.5px solid transparent;}
+  .pill-btn.mint{background:var(--mint); color:var(--mint-ink);}
+  .pill-btn.mint:hover{filter:brightness(0.95);}
+  .pill-btn.outline{border-color:currentColor; color:var(--ink);}
+  .pill-btn.outline-inv{border-color:rgba(255,255,255,.55); color:#fff;}
+
+  .hero{background:var(--mint-pale);}
+  .hero .wrap{display:grid; grid-template-columns:1.5fr 1fr; gap:48px; align-items:center;}
+  .hero h1{font-size:clamp(2.1rem,4vw,3rem); line-height:1.12; color:var(--ink); max-width:16ch;}
+  .hero p.lede{color:var(--ink-soft); font-size:1.05rem; margin-top:16px; max-width:52ch;}
+  .hero .cta-row{display:flex; gap:14px; margin-top:26px;}
+  .stat-card{background:var(--panel); border-radius:24px; padding:28px; text-align:center; box-shadow:0 1px 2px rgba(16,24,22,.04), 0 12px 28px -18px rgba(16,24,22,.18);}
+  .stat-card .icon-circle{width:56px; height:56px; margin:0 auto 10px; border-radius:50%; background:var(--mint-pale-2); display:flex; align-items:center; justify-content:center;}
+  .stat-card .icon-circle svg{width:28px; height:28px; color:var(--ink);}
+  .stat-card .big{font-size:2.4rem; font-weight:800; font-family:"Baloo 2"; color:var(--ink);}
+  .stat-card .lbl{font-size:.85rem; color:var(--ink-soft); margin-top:4px;}
+  .dots{display:flex; gap:6px; justify-content:center; margin-top:16px;}
+  .dots span{width:6px; height:6px; border-radius:50%; background:var(--border);}
+  .dots span.on{background:var(--ink);}
+
+  .icon-sq{width:52px; height:52px; border-radius:14px; border:1.5px solid var(--border); display:flex; align-items:center; justify-content:center; flex:none; background:var(--panel);}
+  .icon-sq svg{width:26px; height:26px; color:var(--ink);}
+  .icon-sq.filled{background:var(--teal-deep); border-color:var(--teal-deep);}
+  .icon-sq.filled svg{color:#fff;}
+
+  .section-head{margin-bottom:28px;}
+  .section-head h2{font-size:1.7rem;}
+  .section-head p{margin:8px 0 0; color:var(--ink-soft); font-size:.94rem; max-width:56ch;}
+
+  .cat-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
+  .cat-card{border:1px solid var(--border); border-radius:20px; padding:26px; display:flex; flex-direction:column; gap:14px; background:var(--panel); box-shadow:0 1px 2px rgba(16,24,22,.03); transition:box-shadow .2s, transform .2s;}
+  .cat-card:hover{box-shadow:0 16px 32px -20px rgba(16,24,22,.22); transform:translateY(-2px);}
+  .cat-card h3{font-size:1.08rem;}
+  .cat-card p{margin:0; font-size:.86rem; color:var(--ink-soft);}
+  .count-pill{display:inline-block; background:var(--mint-pale-2); color:var(--ink); font-weight:700; font-size:.8rem; padding:.5em 1em; border-radius:999px; width:fit-content;}
+  .cat-card ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px;}
+  .cat-card ul li{display:flex; align-items:center; gap:9px; font-size:.85rem;}
+  .cat-card ul li::before{content:""; width:7px; height:7px; background:var(--coral); flex:none; border-radius:1.5px;}
+  .cat-card ul button{background:none; border:none; padding:0; color:var(--ink-soft); text-align:left; cursor:pointer; font-size:.85rem;}
+  .cat-card ul button:hover{color:var(--ink); text-decoration:underline; text-underline-offset:2px;}
+  .cat-card .go{margin-top:auto; font-size:.85rem; font-weight:700; color:var(--ink); background:none; border:none; padding:0; cursor:pointer; text-align:left;}
+
+  .checklist-section{background:var(--cream);}
+  .checklist-section .wrap{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start;}
+  .checklist-section h2{font-size:1.9rem; max-width:14ch; line-height:1.15;}
+  .checklist{list-style:none; margin:20px 0 0; padding:0; display:flex; flex-direction:column; gap:18px;}
+  .checklist li{display:flex; gap:14px; align-items:flex-start; font-size:.92rem; color:var(--ink-soft);}
+  .check-dot{width:24px; height:24px; border-radius:50%; background:var(--mint-pale-2); display:flex; align-items:center; justify-content:center; flex:none; margin-top:2px;}
+  .check-dot svg{width:14px; height:14px; color:var(--ink);}
+
+  .mini-stats{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:8px;}
+  .mini-stat{background:var(--panel); border:1px solid var(--border); border-radius:16px; padding:20px; text-align:center; box-shadow:0 1px 2px rgba(16,24,22,.03);}
+  .mini-stat .k{font-size:.76rem; color:var(--ink-faint); margin-bottom:6px;}
+  .mini-stat .v{font-family:"Baloo 2"; font-size:1.8rem; font-weight:800; color:var(--ink);}
+  .mini-stat .u{font-size:.76rem; color:var(--ink-soft); margin-top:4px;}
+
+  .controls{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:20px;}
+  .controls input[type="search"]{flex:1; min-width:220px; font:inherit; font-size:.92rem; padding:.75em 1.1em; border:1px solid var(--border); border-radius:999px; background:var(--panel); color:var(--ink);}
+  .controls input:focus{outline:2px solid var(--mint); outline-offset:1px;}
+  .pills-row{display:flex; gap:8px; flex-wrap:wrap;}
+  .pill{font-size:.82rem; font-weight:600; padding:.55em 1.1em; border-radius:999px; border:1px solid var(--border); background:var(--panel); color:var(--ink-soft); cursor:pointer;}
+  .pill[aria-pressed="true"]{background:var(--ink); border-color:var(--ink); color:#fff;}
+
+  .list-panel{border:1px solid var(--border); border-radius:20px; overflow:hidden; background:var(--panel); box-shadow:0 1px 2px rgba(16,24,22,.03);}
+  .list-row{display:grid; grid-template-columns:28px 1fr auto; align-items:center; gap:16px; padding:16px 22px; border-top:1px solid var(--border);}
+  .list-row:first-child{border-top:none;}
+  .list-row:hover{background:var(--cream-soft);}
+  .list-row h4{margin:0 0 3px; font-size:.95rem; font-weight:700; font-family:"Inter";}
+  .list-row p{margin:0; font-size:.84rem; color:var(--ink-soft);}
+  .list-row .tag{font-size:.72rem; font-weight:700; color:var(--ink); background:var(--mint-pale-2); padding:.32em .85em; border-radius:999px; white-space:nowrap; justify-self:end;}
+  .list-meta{font-size:.82rem; color:var(--ink-faint); margin-bottom:14px;}
+  .empty-row{padding:32px 20px; text-align:center; color:var(--ink-faint); font-size:.9rem;}
+
+  .help-section{background:var(--cream);}
+  .help-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .help-card{background:var(--panel); border:1px solid var(--border); border-radius:20px; padding:24px; box-shadow:0 1px 2px rgba(16,24,22,.03);}
+  .help-card h3{font-size:1.02rem; margin:16px 0 8px;}
+  .help-card p{margin:0 0 14px; font-size:.86rem; color:var(--ink-soft);}
+  .help-card ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px; font-size:.86rem;}
+  .help-card ul li::before{content:"› "; color:var(--coral); font-weight:700;}
+  .help-card a:hover{text-decoration:underline;}
+
+  .faq-panel{border:1px solid var(--border); border-radius:20px; overflow:hidden; background:var(--panel); box-shadow:0 1px 2px rgba(16,24,22,.03);}
+  .faq-row{border-top:1px solid var(--border);}
+  .faq-row:first-child{border-top:none;}
+  .faq-row summary{list-style:none; cursor:pointer; padding:16px 22px; display:flex; justify-content:space-between; gap:1em; font-weight:700; font-size:.92rem;}
+  .faq-row summary::-webkit-details-marker{display:none;}
+  .faq-row summary::after{content:"+"; color:var(--ink-faint); font-weight:400; font-size:1.2rem;}
+  .faq-row[open] summary::after{content:"−";}
+  .faq-row .a{padding:0 22px 18px; font-size:.87rem; color:var(--ink-soft); max-width:60ch;}
+
+  .editor-panel{border:1px solid var(--border); border-radius:20px; overflow:hidden; background:var(--panel); box-shadow:0 1px 2px rgba(16,24,22,.03);}
+  .settings-row{display:grid; grid-template-columns:220px 1fr; gap:20px; padding:20px 22px; border-top:1px solid var(--border);}
+  .settings-row:first-child{border-top:none;}
+  .settings-row label{font-size:.9rem; font-weight:700;}
+  .settings-row .hint{font-size:.78rem; font-weight:400; color:var(--ink-faint); margin-top:4px;}
+  .settings-row input, .settings-row textarea{width:100%; font:inherit; font-size:.9rem; padding:.6em .8em; border:1px solid var(--border); border-radius:10px; background:var(--cream-soft); color:var(--ink); resize:vertical;}
+  .settings-row input:focus, .settings-row textarea:focus{outline:2px solid var(--mint); outline-offset:1px;}
+  .editor-actions{display:flex; align-items:center; gap:14px; padding:18px 22px; border-top:1px solid var(--border); flex-wrap:wrap;}
+  .btn-plain{font:inherit; font-size:.86rem; font-weight:700; padding:.65em 1.2em; border-radius:999px; cursor:pointer; border:1px solid var(--border); background:var(--panel); color:var(--ink);}
+  .save-status{font-size:.82rem; color:var(--ink-faint); display:flex; align-items:center; gap:6px;}
+  .save-status .dot{width:6px; height:6px; border-radius:50%; background:var(--coral); display:none;}
+  .save-status.ok .dot{display:inline-block;} .save-status.ok{color:var(--ink);}
+  .hero-preview{border:1px solid var(--border); border-radius:18px; padding:24px; margin-bottom:20px; background:var(--mint-pale);}
+  .hero-preview h1{font-size:1.35rem; margin:0 0 6px;}
+  .hero-preview p{margin:0; font-size:.9rem; color:var(--ink-soft); max-width:56ch; font-family:"Inter";}
+
+  .cta-band{background:var(--teal-deep); color:#B8B8B5;}
+  .cta-band .wrap{display:flex; justify-content:space-between; align-items:center; gap:24px; flex-wrap:wrap;}
+  .cta-band h2{font-size:clamp(1.6rem,3vw,2.1rem); color:#fff; max-width:14ch;}
+  .cta-band .cta-row{display:flex; gap:14px; flex-wrap:wrap;}
+
+  footer.site{background:var(--teal-deep-2); color:#9C9C99; padding:48px 0 24px;}
+  .foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:32px;}
+  footer.site h4{font-size:.85rem; color:#fff; margin-bottom:12px; font-family:"Inter"; font-weight:700;}
+  footer.site ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px; font-size:.85rem;}
+  footer.site a:hover{color:#fff; text-decoration:underline; text-underline-offset:2px;}
+  .foot-bottom{border-top:1px solid #262625; margin-top:32px; padding-top:18px; font-size:.78rem; color:#6E6E6B; display:flex; justify-content:space-between; flex-wrap:wrap; gap:1em;}
+
+  @media (max-width:960px){
+    .hero .wrap{grid-template-columns:1fr;}
+    .cat-grid{grid-template-columns:1fr 1fr;}
+    .checklist-section .wrap{grid-template-columns:1fr;}
+    .help-grid{grid-template-columns:1fr 1fr;}
+    .foot-grid{grid-template-columns:1fr;}
+    .mini-stats{grid-template-columns:1fr;}
+  }
+  @media (max-width:640px){
+    nav.mainnav{display:none;}
+    .cat-grid, .help-grid{grid-template-columns:1fr;}
+    .settings-row{grid-template-columns:1fr;}
+    .list-row{grid-template-columns:24px 1fr;}
+    .list-row .tag{grid-column:2;}
+    .cta-band .wrap{flex-direction:column; align-items:flex-start;}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#servicios">Saltar al contenido</a>
+
+<div class="utility"><div class="wrap">
+  <span>Proyecto conceptual de Nicolás Cortez — sin operaciones reales</span>
+  <span><a href="#servicios">Buscar</a> &nbsp;·&nbsp; <a href="#ayuda">Ayuda</a> &nbsp;·&nbsp; <a href="#editor">Editor</a></span>
+</div></div>
+
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="#"><svg class="mark" viewBox="0 0 32 32" fill="none"><path d="M6 16c0-6 5-10 11-10-1 6-5 8-8 8 4 0 8 3 8 9-6 1-11-3-11-7z" fill="var(--ink)"/></svg>FuturoUno</a>
+    <nav class="mainnav" aria-label="Principal">
+      <ul><li><a href="#servicios">Servicios</a></li><li><a href="#ayuda">Ayuda</a></li><li><a href="#editor">Editor</a></li></ul>
+    </nav>
+    <div class="head-actions">
+      <span>Portal ciudadano</span>
+      <a class="pill-btn mint" href="#editor">Ir al editor</a>
     </div>
-    <header class="demo-header">
-      <div class="container header-row between">
-        <a class="logo" href="demo-institucional.html"
-          >Futuro<span style="color: #a46139">Uno.</span></a
-        >
-        <nav aria-label="Portal">
-          <a href="#servicios">Servicios</a><a href="#ayuda">Ayuda</a
-          ><a href="#editor">Editor de prueba</a>
-        </nav>
-      </div>
-    </header>
-    <main class="container" id="contenido">
-      <noscript
-        ><p class="notice">
-          Activa JavaScript para probar los controles y el guardado local de
-          este proyecto.
-        </p></noscript
-      >
-      <section class="intro">
-        <div>
-          <span class="eyebrow">Un punto de encuentro</span>
-          <h1 id="hero-title">Lo que necesitas.<br />Más cerca.</h1>
-          <p id="hero-copy" style="margin-top: 28px">
-            Información clara y servicios fáciles de encontrar. Un concepto de
-            portal institucional centrado en las personas.
-          </p>
-          <a class="btn primary" href="#servicios">Explorar servicios ↓</a>
-        </div>
-        <div class="portal-hero-card">
-          <span class="eyebrow">Diseñado para orientarte</span>
-          <h2>Menos vueltas.<br />Más claridad.</h2>
-          <p id="banner-copy">
-            Encuentra documentos, conoce los pasos y resuelve tus dudas desde un
-            mismo lugar.
-          </p>
-          <a href="#ayuda">Visitar el centro de ayuda ↗</a>
-        </div>
-      </section>
-      <section class="section" id="servicios">
-        <div class="row between">
-          <h2>¿En qué podemos ayudarte?</h2>
-          <span id="service-count" class="small" role="status"></span>
-        </div>
-        <label style="max-width: 640px"
-          >Buscar un servicio<input
-            type="search"
-            id="service-search"
-            placeholder="Certificados, formularios, seguridad…"
-        /></label>
-        <div class="filters">
-          <button class="btn" data-category="Todos" aria-pressed="true">
-            Todos</button
-          ><button class="btn" data-category="Documentos" aria-pressed="false">
-            Documentos</button
-          ><button class="btn" data-category="Ayuda" aria-pressed="false">
-            Ayuda
-          </button>
-        </div>
-        <div class="service-grid" id="services-grid"></div>
-      </section>
-      <section class="section faq" id="ayuda">
-        <span class="eyebrow">Centro de ayuda</span>
-        <h2>Preguntas, con respuesta.</h2>
-        <details>
-          <summary>¿Este portal pertenece a una institución real?</summary>
-          <p>
-            No. FuturoUno es un proyecto conceptual para demostrar arquitectura
-            de información y edición de contenidos.
-          </p>
-        </details>
-        <details>
-          <summary>¿Puedo solicitar trámites aquí?</summary>
-          <p>
-            Puedes revisar los pasos y descargar un formulario de ejemplo. No se
-            reciben solicitudes ni se emiten certificados.
-          </p>
-        </details>
-        <details>
-          <summary>¿Dónde se guardan los cambios del editor?</summary>
-          <p>
-            Solo en este navegador. No se publican para otros visitantes. Una
-            versión productiva necesitaría autenticación, permisos y un backend.
-          </p>
-        </details>
-      </section>
-      <section class="section" id="editor">
-        <span class="eyebrow">Explora la gestión de contenido</span>
-        <h2>Prueba una edición.</h2>
-        <p>
-          Editor local, sin autenticación. Los cambios se reflejan arriba y
-          permanecen tras recargar este navegador.
-        </p>
-        <form id="editor-form" class="surface fields">
-          <label class="wide"
-            >Título principal<input
-              id="edit-title"
-              maxlength="100"
-              required /></label
-          ><label class="wide"
-            >Presentación<textarea
-              id="edit-copy"
-              maxlength="500"
-              required
-              rows="3"
-            ></textarea></label
-          ><label class="wide"
-            >Texto del destacado<textarea
-              id="edit-banner"
-              maxlength="300"
-              required
-              rows="3"
-            ></textarea>
-          </label>
-          <div class="row wide">
-            <button class="btn primary" type="submit">
-              Guardar cambios locales</button
-            ><button class="btn" id="reset-editor" type="button">
-              Restaurar textos iniciales
-            </button>
-          </div>
-          <p id="editor-status" class="status wide" role="status"></p>
-        </form>
-      </section>
-    </main>
-    <footer class="demo-footer">
-      <div class="container">
-        <span>Proyecto conceptual. Sin operaciones reales.</span>
-        <div>
-          <a href="proyectos.html">Volver a proyectos</a> ·
-          <a href="terminos.html">Términos</a> ·
-          <a href="creditos.html">Créditos</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <h1 id="hero-title">Encuentra el trámite sin perderte en el camino.</h1>
+        <p class="lede" id="hero-copy">FuturoUno reúne certificados, formularios y guías en un solo lugar, agrupados por categoría y fáciles de filtrar.</p>
+        <div class="cta-row">
+          <a class="pill-btn outline" href="#servicios">Ver categorías</a>
         </div>
       </div>
-    </footer>
-  </body>
+      <div class="stat-card">
+        <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <div class="big">24</div>
+        <div class="lbl">servicios disponibles hoy</div>
+        <div class="dots"><span class="on"></span><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicios">
+    <div class="wrap">
+      <div class="section-head"><h2>Categorías</h2><p>Elige una categoría o busca directamente más abajo.</p></div>
+      <div class="cat-grid" id="cat-grid"></div>
+    </div>
+  </section>
+
+  <section class="checklist-section">
+    <div class="wrap">
+      <div>
+        <h2>Un solo panel, menos vueltas.</h2>
+        <ul class="checklist">
+          <li><span class="check-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Todos los trámites en un mismo lugar, sin saltar entre sitios distintos.</li>
+          <li><span class="check-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Guías en lenguaje simple, sin tecnicismos ni letra chica.</li>
+          <li><span class="check-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Seguimiento del estado de tu solicitud con el número de folio.</li>
+          <li><span class="check-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Datos de ejemplo: puedes editar el panel sin afectar a nadie más.</li>
+        </ul>
+      </div>
+      <div>
+        <div class="mini-stats">
+          <div class="mini-stat"><div class="k">Hoy</div><div class="v">24</div><div class="u">servicios activos</div></div>
+          <div class="mini-stat"><div class="k">Promedio</div><div class="v">6 min</div><div class="u">por trámite</div></div>
+          <div class="mini-stat"><div class="k">Categorías</div><div class="v">4</div><div class="u">áreas cubiertas</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head"><h2>Buscar servicio</h2><p>Filtra por nombre o por categoría.</p></div>
+      <div class="controls">
+        <input type="search" id="service-search" placeholder="Buscar por nombre, ej. certificado, reclamo…" aria-label="Buscar un servicio">
+        <div class="pills-row" id="category-pills"><button class="pill" data-category="Todos" aria-pressed="true">Todos</button></div>
+      </div>
+      <p class="list-meta" id="service-count" role="status"></p>
+      <div class="list-panel"><div id="services-list"></div></div>
+    </div>
+  </section>
+
+  <section id="ayuda" class="help-section">
+    <div class="wrap">
+      <div class="section-head"><h2>¿Necesitas ayuda?</h2></div>
+      <div class="help-grid">
+        <div class="help-card">
+          <div class="icon-sq filled"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="13" rx="3"/><path d="M8 20l4-3 4 3"/></svg></div>
+          <h3>Guía rápida</h3>
+          <p>Qué documentos llevar y cuánto demora cada gestión, paso a paso.</p>
+        </div>
+        <div class="help-card">
+          <div class="icon-sq filled"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .8-1 1.7M12 17h.01"/></svg></div>
+          <h3>Preguntas frecuentes</h3>
+          <p>Respuestas a las dudas más comunes sobre este panel.</p>
+        </div>
+        <div class="help-card">
+          <div class="icon-sq filled"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4"/></svg></div>
+          <h3>Recursos</h3>
+          <ul>
+            <li><a href="#servicios">Índice de servicios</a></li>
+            <li><a href="#editor">Editor de contenido</a></li>
+            <li><a href="proyectos.html">Volver al portafolio</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="section-head" style="margin-top:44px;"><h2 style="font-size:1.4rem;">Preguntas frecuentes</h2></div>
+      <div class="faq-panel">
+        <details class="faq-row"><summary>¿FuturoUno pertenece a una institución real?</summary><div class="a">No. Es un proyecto conceptual para mostrar arquitectura de información y edición de contenido, sin vínculo con ninguna entidad.</div></details>
+        <details class="faq-row"><summary>¿Puedo hacer un trámite real desde aquí?</summary><div class="a">Puedes revisar los pasos de ejemplo, pero no se reciben solicitudes ni se emiten certificados.</div></details>
+        <details class="faq-row"><summary>¿Dónde quedan guardados los cambios del editor?</summary><div class="a">Solo en este navegador, en este dispositivo. Una versión real necesitaría autenticación, permisos y un servidor.</div></details>
+      </div>
+    </div>
+  </section>
+
+  <section id="editor">
+    <div class="wrap">
+      <div class="section-head"><h2>Editor</h2><p>Ajusta el contenido de la vista previa.</p></div>
+      <div class="hero-preview">
+        <h1 id="preview-title"></h1>
+        <p id="preview-copy"></p>
+      </div>
+      <form class="editor-panel" id="editor-form">
+        <div class="settings-row"><label for="edit-title">Titular principal<div class="hint">Aparece en el encabezado y en la vista previa.</div></label><input id="edit-title" maxlength="100" required></div>
+        <div class="settings-row"><label for="edit-copy">Presentación<div class="hint">Una o dos frases de contexto.</div></label><textarea id="edit-copy" maxlength="500" rows="3" required></textarea></div>
+        <div class="editor-actions">
+          <button class="pill-btn mint" type="submit">Guardar cambios</button>
+          <button class="btn-plain" id="reset-editor" type="button">Restaurar original</button>
+          <span class="save-status" id="editor-status"><span class="dot"></span><span id="status-text"></span></span>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Simple. Directo. Sin vueltas.</h2>
+    <div class="cta-row">
+      <a class="pill-btn" style="background:#fff; color:#111; border-radius:999px; font-weight:700; font-size:.86rem; padding:.7em 1.4em; display:inline-flex; align-items:center;" href="#servicios">Explorar servicios</a>
+      <a class="pill-btn outline-inv" href="#editor">Ir al editor</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><h4>FuturoUno</h4><p style="font-size:.85rem; max-width:36ch; color:#9C9C99;">Proyecto conceptual de portal de servicios, creado para explorar arquitectura de información y diseño de interfaces.</p></div>
+      <div><h4>Servicios</h4><ul><li><a href="#servicios">Documentos</a></li><li><a href="#servicios">Turnos</a></li><li><a href="#servicios">Seguimiento</a></li><li><a href="#ayuda">Ayuda</a></li></ul></div>
+      <div><h4>Proyecto</h4><ul><li><a href="proyectos.html">Volver al portafolio</a></li><li><a href="terminos.html">Términos</a></li><li><a href="creditos.html">Créditos</a></li></ul></div>
+    </div>
+    <div class="foot-bottom"><span>Proyecto conceptual. Sin operaciones reales.</span><span>Datos ficticios · guardado local en tu navegador</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var SERVICES = [
+    {name:"Certificado de residencia", cat:"Documentos", desc:"Comprueba tu domicilio actual para trámites bancarios, laborales o escolares."},
+    {name:"Certificado de antecedentes", cat:"Documentos", desc:"Documento oficial de conducta, requerido en procesos laborales."},
+    {name:"Solicitud de hora de atención", cat:"Turnos", desc:"Reserva un cupo presencial u online para evitar filas."},
+    {name:"Mapa de oficinas cercanas", cat:"Turnos", desc:"Ubica el punto de atención más cercano según tu dirección."},
+    {name:"Estado de una solicitud", cat:"Seguimiento", desc:"Revisa en qué etapa va un trámite ya iniciado, con el número de folio."},
+    {name:"Formulario de reclamo", cat:"Seguimiento", desc:"Registra una queja o solicitud formal y sigue su estado en línea."},
+    {name:"Guía paso a paso de trámites", cat:"Ayuda", desc:"Qué documentos llevar y cuánto demora cada gestión, explicado en simple."},
+    {name:"Preguntas sobre pagos", cat:"Ayuda", desc:"Aranceles, medios de pago y comprobantes."}
+  ];
+  var CATEGORIES = [
+    {name:"Documentos", icon:'<path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4"/>', desc:"Certificados oficiales que puedes solicitar en línea."},
+    {name:"Turnos", icon:'<rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 9h16M8 3v4M16 3v4"/>', desc:"Reserva tu hora y ubica el punto de atención."},
+    {name:"Seguimiento", icon:'<path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="9"/>', desc:"Consulta el estado de una solicitud o reclamo."},
+    {name:"Ayuda", icon:'<circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .8-1 1.7M12 17h.01"/>', desc:"Guías y respuestas a preguntas comunes."}
+  ];
+  var DEFAULTS = { title:"Encuentra el trámite sin perderte en el camino.", copy:"FuturoUno reúne certificados, formularios y guías en un solo lugar, agrupados por categoría y fáciles de filtrar." };
+  var STORAGE_KEY = "futurouno_editor_v4";
+  function safeGet(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
+  function safeSet(k,v){ try{ localStorage.setItem(k,v); return true; }catch(e){ return false; } }
+  function applyHero(title, copy){
+    document.getElementById("hero-title").textContent = title;
+    document.getElementById("hero-copy").textContent = copy;
+    document.getElementById("preview-title").textContent = title;
+    document.getElementById("preview-copy").textContent = copy;
+  }
+  function loadSaved(){
+    var raw = safeGet(STORAGE_KEY);
+    if(!raw){ applyHero(DEFAULTS.title, DEFAULTS.copy); return; }
+    try{ var data = JSON.parse(raw); applyHero(data.title || DEFAULTS.title, data.copy || DEFAULTS.copy); }
+    catch(e){ applyHero(DEFAULTS.title, DEFAULTS.copy); }
+  }
+  function fillForm(){
+    document.getElementById("edit-title").value = document.getElementById("hero-title").textContent;
+    document.getElementById("edit-copy").value = document.getElementById("hero-copy").textContent;
+  }
+  var statusEl = document.getElementById("editor-status");
+  var statusText = document.getElementById("status-text");
+  function showStatus(msg, ok){ statusText.textContent = msg; statusEl.className = "save-status" + (ok ? " ok" : ""); }
+  document.getElementById("editor-form").addEventListener("submit", function(ev){
+    ev.preventDefault();
+    var title = document.getElementById("edit-title").value.trim();
+    var copy = document.getElementById("edit-copy").value.trim();
+    applyHero(title, copy);
+    var ok = safeSet(STORAGE_KEY, JSON.stringify({title:title, copy:copy}));
+    showStatus(ok ? "Guardado en este navegador" : "No se pudo guardar", ok);
+  });
+  document.getElementById("reset-editor").addEventListener("click", function(){
+    applyHero(DEFAULTS.title, DEFAULTS.copy);
+    try{ localStorage.removeItem(STORAGE_KEY); }catch(e){}
+    fillForm();
+    showStatus("Textos originales restaurados", true);
+  });
+
+  var catGrid = document.getElementById("cat-grid");
+  CATEGORIES.forEach(function(c){
+    var items = SERVICES.filter(function(s){ return s.cat === c.name; });
+    var card = document.createElement("div");
+    card.className = "cat-card";
+    var ul = items.map(function(s){ return '<li><button type="button" data-jump="'+s.name+'">'+s.name+'</button></li>'; }).join("");
+    card.innerHTML =
+      '<div class="icon-sq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">'+c.icon+'</svg></div>' +
+      '<h3>'+c.name+'</h3><p>'+c.desc+'</p>' +
+      '<span class="count-pill">'+items.length+' servicios</span>' +
+      '<ul>'+ul+'</ul>' +
+      '<button type="button" class="go" data-filter="'+c.name+'">Ver todos →</button>';
+    catGrid.appendChild(card);
+  });
+
+  var pillsWrap = document.getElementById("category-pills");
+  CATEGORIES.forEach(function(c){
+    var b = document.createElement("button");
+    b.className = "pill"; b.setAttribute("data-category", c.name); b.setAttribute("aria-pressed","false"); b.textContent = c.name;
+    pillsWrap.appendChild(b);
+  });
+
+  var list = document.getElementById("services-list");
+  var countEl = document.getElementById("service-count");
+  var searchInput = document.getElementById("service-search");
+  var activeCategory = "Todos";
+  function setActivePill(cat){
+    document.querySelectorAll(".pill").forEach(function(p){ p.setAttribute("aria-pressed", p.getAttribute("data-category") === cat ? "true" : "false"); });
+    activeCategory = cat;
+  }
+  function render(){
+    var q = searchInput.value.trim().toLowerCase();
+    var items = SERVICES.filter(function(s){
+      var matchesCat = activeCategory === "Todos" || s.cat === activeCategory;
+      var matchesQ = !q || s.name.toLowerCase().indexOf(q) !== -1 || s.desc.toLowerCase().indexOf(q) !== -1;
+      return matchesCat && matchesQ;
+    });
+    list.innerHTML = "";
+    if(items.length === 0){
+      var empty = document.createElement("div");
+      empty.className = "empty-row";
+      empty.textContent = "No hay servicios que coincidan con tu búsqueda.";
+      list.appendChild(empty);
+    } else {
+      items.forEach(function(s, i){
+        var row = document.createElement("div");
+        row.className = "list-row";
+        row.innerHTML =
+          '<span style="font-size:.78rem;color:var(--ink-faint);font-variant-numeric:tabular-nums;">' + String(i+1).padStart(2,"0") + '</span>' +
+          '<div><h4>' + s.name + '</h4><p>' + s.desc + '</p></div>' +
+          '<span class="tag">' + s.cat + '</span>';
+        list.appendChild(row);
+      });
+    }
+    countEl.textContent = items.length + (items.length === 1 ? " resultado" : " resultados") + (activeCategory !== "Todos" ? " en " + activeCategory : "");
+  }
+  document.addEventListener("click", function(ev){
+    var filterBtn = ev.target.closest("[data-filter]");
+    var jumpBtn = ev.target.closest("[data-jump]");
+    var pillBtn = ev.target.closest(".pill");
+    if(filterBtn){ setActivePill(filterBtn.getAttribute("data-filter")); searchInput.value=""; render(); document.querySelectorAll("section")[3].scrollIntoView({behavior:"smooth"}); }
+    else if(jumpBtn){ searchInput.value = jumpBtn.getAttribute("data-jump"); setActivePill("Todos"); render(); document.querySelectorAll("section")[3].scrollIntoView({behavior:"smooth"}); }
+    else if(pillBtn){ setActivePill(pillBtn.getAttribute("data-category")); render(); }
+  });
+  searchInput.addEventListener("input", render);
+
+  loadSaved();
+  fillForm();
+  render();
+})();
+</script>
+</body>
 </html>
