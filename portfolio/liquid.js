@@ -18,17 +18,17 @@
     float ridged(vec2 p){float n=fbm(p);return 1.0-abs(2.0*n-1.0);}
 
     vec2 flow(vec2 p,float t){
-      vec2 q=vec2(fbm(p*.72+vec2(-t*.025,t*.018)),fbm(p*.76+vec2(t*.020,-t*.016)+6.8));
-      vec2 r=vec2(fbm(p*1.12+3.2*q+vec2(-t*.035,t*.026)+2.2),fbm(p*1.06+2.8*q+vec2(t*.031,t*.024)+9.1));
+      vec2 q=vec2(fbm(p*.72+vec2(-t*.055,t*.040)),fbm(p*.76+vec2(t*.044,-t*.036)+6.8));
+      vec2 r=vec2(fbm(p*1.12+3.2*q+vec2(-t*.075,t*.058)+2.2),fbm(p*1.06+2.8*q+vec2(t*.068,t*.052)+9.1));
       return r-.5;
     }
 
     float smoke(vec2 p,float t){
       vec2 f=flow(p,t);
       vec2 w=p+f*1.26;
-      float broad=fbm(w*.92+vec2(-t*.023,t*.011));
+      float broad=fbm(w*.92+vec2(-t*.050,t*.024));
       float veins=ridged(w*2.05+flow(w*1.35,t)*1.85);
-      float curls=ridged(rot(.18)*w*3.25+vec2(t*.018,-t*.011));
+      float curls=ridged(rot(.18)*w*3.25+vec2(t*.040,-t*.024));
       return broad*.60+veins*.27+curls*.13;
     }
 
@@ -38,9 +38,9 @@
       vec2 uv=gl_FragCoord.xy/uResolution.xy;
       vec2 p=uv*2.0-1.0;
       p.x*=uResolution.x/uResolution.y;
-      float t=uTime*.30;
-      p+=(uPointer-.5)*vec2(.055,-.035);
-      p=rot(.018*sin(t*.23))*p;
+      float t=uTime*.62;
+      p+=(uPointer-.5)*vec2(.10,-.065);
+      p=rot(.05*sin(t*.30))*p;
 
       vec2 f=flow(p,t);
       vec2 w=p+f*.78;
@@ -55,9 +55,9 @@
       vec3 olive=vec3(.255,.315,.080);
       vec3 acid=vec3(.455,.535,.105);
 
-      vec2 cTeal=vec2(-.86+.10*sin(t*.21),.18+.12*cos(t*.17));
-      vec2 cOlive=vec2(.72+.10*cos(t*.19),-.40+.12*sin(t*.16));
-      vec2 cOlive2=vec2(.96+.08*sin(t*.13),.70+.08*cos(t*.15));
+      vec2 cTeal=vec2(-.86+.20*sin(t*.42),.18+.24*cos(t*.34));
+      vec2 cOlive=vec2(.72+.20*cos(t*.38),-.40+.24*sin(t*.32));
+      vec2 cOlive2=vec2(.96+.16*sin(t*.26),.70+.16*cos(t*.30));
       float a=blob(w,cTeal,vec2(.88,.84));
       float b=blob(w,cOlive,vec2(1.05,.78));
       float c=blob(w,cOlive2,vec2(.72,.92));
@@ -88,12 +88,11 @@
   const buf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buf);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]),gl.STATIC_DRAW);const pos=gl.getAttribLocation(program,'position');gl.enableVertexAttribArray(pos);gl.vertexAttribPointer(pos,2,gl.FLOAT,false,0,0);
   const res=gl.getUniformLocation(program,'uResolution'),time=gl.getUniformLocation(program,'uTime'),ptr=gl.getUniformLocation(program,'uPointer');
   // Same fragment shader and palette; capped rendering, visibility pause, reduced motion.
-  // Same fragment shader and palette; capped rendering, visibility pause, reduced motion.
   const motion=matchMedia('(prefers-reduced-motion: reduce)');
   const pointer={x:.5,y:.5,tx:.5,ty:.5};
   let frame=0,last=0,elapsed=0,previous=0,paused=false;
   function resize(){const budget=innerWidth<768?480000:950000;const dpr=Math.min(devicePixelRatio||1,1.25,Math.sqrt(budget/(innerWidth*innerHeight)));canvas.width=Math.round(innerWidth*dpr);canvas.height=Math.round(innerHeight*dpr);gl.viewport(0,0,canvas.width,canvas.height)}
-  function draw(now){frame=0;if(document.hidden||paused)return;if(now-last>=1000/24||motion.matches){if(previous)elapsed+=Math.min(now-previous,80);previous=now;last=now;pointer.x+=(pointer.tx-pointer.x)*.018;pointer.y+=(pointer.ty-pointer.y)*.018;gl.uniform2f(res,canvas.width,canvas.height);gl.uniform1f(time,motion.matches?0:elapsed*.001);gl.uniform2f(ptr,pointer.x,pointer.y);gl.drawArrays(gl.TRIANGLES,0,6);canvas.style.visibility='visible'}if(!motion.matches)frame=requestAnimationFrame(draw)}
+  function draw(now){frame=0;if(document.hidden||paused)return;if(now-last>=1000/30||motion.matches){if(previous)elapsed+=Math.min(now-previous,80);previous=now;last=now;pointer.x+=(pointer.tx-pointer.x)*.045;pointer.y+=(pointer.ty-pointer.y)*.045;gl.uniform2f(res,canvas.width,canvas.height);gl.uniform1f(time,motion.matches?0:elapsed*.001);gl.uniform2f(ptr,pointer.x,pointer.y);gl.drawArrays(gl.TRIANGLES,0,6);canvas.style.visibility='visible'}if(!motion.matches)frame=requestAnimationFrame(draw)}
   function resume(){cancelAnimationFrame(frame);previous=0;last=0;if(!document.hidden&&!paused)frame=requestAnimationFrame(draw)}
   addEventListener('resize',()=>{resize();resume()},{passive:true});
   document.addEventListener('visibilitychange',resume);motion.addEventListener('change',resume);
