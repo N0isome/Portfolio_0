@@ -1,4 +1,5 @@
 (() => {
+  document.documentElement.classList.add("has-js");
   const toggle = document.querySelector(".menu-toggle"),
     nav = document.querySelector("#nav");
   toggle?.addEventListener("click", () => {
@@ -45,6 +46,7 @@
     document.querySelector(".grain").style.animationPlayState = paused
       ? "paused"
       : "running";
+    document.documentElement.classList.toggle("motion-paused", paused);
     dispatchEvent(new CustomEvent("portfolio-motion", { detail: paused }));
   });
   const cfg = window.PORTFOLIO_CONFIG;

@@ -14,6 +14,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 110px;
+  scrollbar-gutter: stable;
 }
 body {
   margin: 0;
@@ -89,6 +90,7 @@ p {
   position: fixed;
   inset: 0;
   z-index: 0;
+  pointer-events: none;
   background:
     radial-gradient(ellipse at 15% 38%, #124449, transparent 55%),
     radial-gradient(ellipse at 85% 75%, #49511a, transparent 58%), #080a07;
@@ -161,6 +163,7 @@ p {
   border-bottom: 1px solid var(--line);
 }
 .topbar .wrap {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -194,6 +197,7 @@ p {
   padding: 12px 0;
 }
 .nav a:hover,
+.nav a[aria-current="page"],
 .footer a:hover {
   color: var(--acid);
 }
@@ -236,11 +240,11 @@ p {
   margin-bottom: 24px;
 }
 .hero {
-  min-height: min(820px, calc(100svh - 86px));
+  min-height: min(760px, calc(100svh - 86px));
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 80px 0 36px;
+  padding: clamp(48px, 7vh, 88px) 0 48px;
 }
 .hero-top {
   display: flex;
@@ -251,9 +255,9 @@ p {
   color: var(--muted);
 }
 .hero h1 {
-  font-size: clamp(54px, 8.4vw, 124px);
+  font-size: clamp(46px, 8vw, 116px);
   letter-spacing: -0.065em;
-  margin: 32px 0;
+  margin: 24px 0 36px;
   max-width: 1200px;
   line-height: 1.01;
 }
@@ -266,7 +270,7 @@ p {
 .hero-bottom {
   display: flex;
   justify-content: space-between;
-  align-items: end;
+  align-items: center;
   gap: 32px;
   margin-top: 24px;
 }
@@ -276,13 +280,18 @@ p {
   font-size: 16px;
 }
 .hero-bottom .pill {
-  margin: 16px 0;
+  margin: 0;
+  flex-shrink: 0;
+}
+.hero-bottom > .eyebrow {
+  margin: 0;
+  text-align: right;
 }
 .hairline {
   border-bottom: 1px solid var(--line);
 }
 .section {
-  padding: 110px 0;
+  padding: clamp(64px, 8vw, 104px) 0;
 }
 .section-head {
   display: flex;
@@ -303,16 +312,18 @@ p {
 }
 .project-grid {
   display: grid;
-  grid-template-columns: 1.16fr 1fr;
-  gap: 72px 36px;
-}
-.project-card:nth-child(2) {
-  margin-top: 120px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 48px 36px;
 }
 .project-card:last-child {
   grid-column: 1/-1;
-  max-width: 880px;
   width: 100%;
+}
+.project-card:last-child > a {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 36px;
 }
 .project-card a {
   text-decoration: none;
@@ -351,6 +362,9 @@ p {
 .project-info {
   padding: 23px 0;
   border-bottom: 1px solid var(--line);
+}
+.project-card > a:focus-visible .project-media {
+  border-color: var(--acid);
 }
 .project-info small {
   font-size: 10px;
@@ -460,6 +474,9 @@ p {
   border-top: 1px solid var(--line);
 }
 .footer .wrap {
+  padding-right: 70px;
+}
+.footer .wrap {
   display: flex;
   justify-content: space-between;
   gap: 20px;
@@ -476,7 +493,9 @@ p {
   right: max(24px, env(safe-area-inset-right));
   bottom: max(22px, env(safe-area-inset-bottom));
   height: 54px;
-  padding: 0 20px;
+  width: 54px;
+  padding: 0;
+  justify-content: center;
   border-radius: 99px;
   display: flex;
   align-items: center;
@@ -492,13 +511,22 @@ p {
   height: 24px;
 }
 .wa span {
+  position: absolute;
+  right: calc(100% + 10px);
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #141c15;
+  color: var(--cream);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
   font-size: 12px;
   font-weight: 700;
 }
-.wa.in-footer,
-.wa.obstructs {
-  visibility: hidden;
-  pointer-events: none;
+.wa:hover span,
+.wa:focus-visible span {
+  opacity: 1;
 }
 dialog {
   width: min(540px, calc(100% - 32px));
@@ -542,7 +570,11 @@ body:has(dialog[open]) .wa {
   border: 0;
   text-decoration: underline;
   font-size: 12px;
-  padding: 0;
+  padding: 10px 0;
+  min-height: 44px;
+}
+.motion-paused .grain {
+  animation-play-state: paused;
 }
 .reveal {
   animation: arrive 0.7s both;
@@ -567,7 +599,6 @@ body:has(dialog[open]) .wa {
     display: none;
   }
   .menu-toggle {
-    display: block;
     min-height: 44px;
     padding: 8px 14px;
     color: inherit;
@@ -576,7 +607,7 @@ body:has(dialog[open]) .wa {
   }
   .nav {
     width: 100%;
-    display: none;
+    display: flex;
     flex-direction: column;
     gap: 0;
     align-items: stretch;
@@ -585,12 +616,27 @@ body:has(dialog[open]) .wa {
   .nav.open {
     display: flex;
   }
+  .has-js .menu-toggle { display: block; }
+  .has-js .nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 12px 24px;
+    background: #10170f;
+    border: 1px solid var(--line);
+    max-height: calc(100svh - 90px);
+    overflow-y: auto;
+    box-shadow: 0 20px 40px #0006;
+  }
+  .has-js .nav.open { display: flex; }
   .nav a {
     padding: 14px 0;
     border-top: 1px solid var(--line);
   }
   .hero {
-    min-height: 640px;
+    min-height: min(680px, calc(100svh - 74px));
     padding-top: 54px;
   }
   .hero-top {
@@ -600,7 +646,7 @@ body:has(dialog[open]) .wa {
     display: none;
   }
   .hero h1 {
-    font-size: clamp(48px, 10.6vw, 80px);
+    font-size: clamp(36px, 8.6vw, 80px);
   }
   .hero-bottom {
     display: block;
@@ -610,6 +656,10 @@ body:has(dialog[open]) .wa {
   }
   .hero-bottom .pill {
     margin-top: 30px;
+  }
+  .hero-bottom > .eyebrow {
+    margin-top: 28px;
+    text-align: left;
   }
   .section {
     padding: 70px 0;
@@ -626,6 +676,9 @@ body:has(dialog[open]) .wa {
   }
   .project-card:nth-child(2) {
     margin-top: 0;
+  }
+  .project-card:last-child > a {
+    display: block;
   }
   .project-media {
     aspect-ratio: 1.35;
@@ -651,7 +704,7 @@ body:has(dialog[open]) .wa {
     display: none;
   }
   .contact-links {
-    padding-right: 54px;
+    padding-right: 0;
   }
   .footer .wrap {
     flex-direction: column;
@@ -662,6 +715,19 @@ body:has(dialog[open]) .wa {
   .section-title {
     line-height: 1.08;
   }
+}
+@media (max-width: 480px) {
+  .wrap { width: calc(100% - 40px); }
+  .brand { font-size: 20px; }
+  .hero { padding: 44px 0 38px; }
+  .hero h1 { letter-spacing: -0.055em; }
+  .section-title { font-size: clamp(34px, 9vw, 44px); }
+  .hero-bottom > .eyebrow { display: none; }
+  .contact-links .pill { width: 100%; }
+  .contact { padding: 64px 0 80px; }
+  .project-info { padding: 20px 0; }
+  .project-info small { line-height: 1.6; display: block; }
+  .profile-card { padding: 24px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html {
