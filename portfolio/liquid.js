@@ -48,12 +48,12 @@
       float ridge=ridged(w*2.55+flow(w*1.7,t)*2.0);
       ridge=pow(ridge,3.4);
 
-      vec3 ink=vec3(.024,.030,.021);
-      vec3 deep=vec3(.045,.060,.041);
-      vec3 teal=vec3(.055,.245,.285);
-      vec3 tealSoft=vec3(.095,.330,.350);
-      vec3 olive=vec3(.255,.315,.080);
-      vec3 acid=vec3(.455,.535,.105);
+      vec3 ink=vec3(.060,.014,.026);
+      vec3 deep=vec3(.120,.028,.048);
+      vec3 teal=vec3(.360,.070,.155);
+      vec3 tealSoft=vec3(.530,.150,.235);
+      vec3 olive=vec3(.420,.110,.075);
+      vec3 acid=vec3(.680,.215,.150);
 
       vec2 cTeal=vec2(-.86+.20*sin(t*.42),.18+.24*cos(t*.34));
       vec2 cOlive=vec2(.72+.20*cos(t*.38),-.40+.24*sin(t*.32));
@@ -83,20 +83,68 @@
       col=pow(max(col,0.0),vec3(.94));
       gl_FragColor=vec4(col,1.0);
     }`;
-  function compile(type,src){const s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS)){console.error(gl.getShaderInfoLog(s));return null}return s}
-  const program=gl.createProgram(),vs=compile(gl.VERTEX_SHADER,vertex),fs=compile(gl.FRAGMENT_SHADER,fragment);if(!vs||!fs)return;gl.attachShader(program,vs);gl.attachShader(program,fs);gl.linkProgram(program);if(!gl.getProgramParameter(program,gl.LINK_STATUS)){console.error(gl.getProgramInfoLog(program));return}gl.useProgram(program);
-  const buf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buf);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]),gl.STATIC_DRAW);const pos=gl.getAttribLocation(program,'position');gl.enableVertexAttribArray(pos);gl.vertexAttribPointer(pos,2,gl.FLOAT,false,0,0);
-  const res=gl.getUniformLocation(program,'uResolution'),time=gl.getUniformLocation(program,'uTime'),ptr=gl.getUniformLocation(program,'uPointer');
-  // Same fragment shader and palette; capped rendering, visibility pause, reduced motion.
-  const motion=matchMedia('(prefers-reduced-motion: reduce)');
-  const pointer={x:.5,y:.5,tx:.5,ty:.5};
-  let frame=0,last=0,elapsed=0,previous=0,paused=false;
-  function resize(){const budget=innerWidth<768?480000:950000;const dpr=Math.min(devicePixelRatio||1,1.25,Math.sqrt(budget/(innerWidth*innerHeight)));canvas.width=Math.round(innerWidth*dpr);canvas.height=Math.round(innerHeight*dpr);gl.viewport(0,0,canvas.width,canvas.height)}
-  function draw(now){frame=0;if(document.hidden||paused)return;if(now-last>=1000/30||motion.matches){if(previous)elapsed+=Math.min(now-previous,80);previous=now;last=now;pointer.x+=(pointer.tx-pointer.x)*.045;pointer.y+=(pointer.ty-pointer.y)*.045;gl.uniform2f(res,canvas.width,canvas.height);gl.uniform1f(time,motion.matches?0:elapsed*.001);gl.uniform2f(ptr,pointer.x,pointer.y);gl.drawArrays(gl.TRIANGLES,0,6);canvas.style.visibility='visible'}if(!motion.matches)frame=requestAnimationFrame(draw)}
-  function resume(){cancelAnimationFrame(frame);previous=0;last=0;if(!document.hidden&&!paused)frame=requestAnimationFrame(draw)}
-  addEventListener('resize',()=>{resize();resume()},{passive:true});
-  document.addEventListener('visibilitychange',resume);motion.addEventListener('change',resume);
-  addEventListener('portfolio-motion',e=>{paused=e.detail;resume()});
-  canvas.addEventListener('webglcontextlost',e=>{e.preventDefault();cancelAnimationFrame(frame);canvas.style.visibility='hidden'});
-  addEventListener('pointermove',e=>{if(e.pointerType==='mouse'){pointer.tx=e.clientX/innerWidth;pointer.ty=1-e.clientY/innerHeight}},{passive:true});resize();resume();
+  let program, buf, res, time, ptr;
+  let ready = false, lost = false, frame = 0, last = 0, elapsed = 0, previous = 0;
+  let paused = false;
+  try { paused = sessionStorage.getItem('nc-motion-paused') === 'true'; } catch {}
+  const motion = matchMedia('(prefers-reduced-motion: reduce)');
+  const pointer = {x:.5,y:.5,tx:.5,ty:.5};
+  function compile(type, source) {
+    const shader = gl.createShader(type);
+    gl.shaderSource(shader, source); gl.compileShader(shader);
+    if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) { gl.deleteShader(shader); return null; }
+    return shader;
+  }
+  function init() {
+    ready = false;
+    const vs = compile(gl.VERTEX_SHADER, vertex), fs = compile(gl.FRAGMENT_SHADER, fragment);
+    if (!vs || !fs) { if(vs) gl.deleteShader(vs); if(fs) gl.deleteShader(fs); return; }
+    program = gl.createProgram(); gl.attachShader(program, vs); gl.attachShader(program, fs); gl.linkProgram(program);
+    gl.deleteShader(vs); gl.deleteShader(fs);
+    if (!gl.getProgramParameter(program, gl.LINK_STATUS)) { gl.deleteProgram(program); return; }
+    gl.useProgram(program); buf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]), gl.STATIC_DRAW);
+    const pos = gl.getAttribLocation(program, 'position'); gl.enableVertexAttribArray(pos); gl.vertexAttribPointer(pos,2,gl.FLOAT,false,0,0);
+    res = gl.getUniformLocation(program,'uResolution'); time = gl.getUniformLocation(program,'uTime'); ptr = gl.getUniformLocation(program,'uPointer');
+    ready = true;
+  }
+  function resize() {
+    if (!ready || lost) return;
+    const width = Math.max(1, canvas.clientWidth), height = Math.max(1, canvas.clientHeight);
+    const budget = width < 768 ? 360000 : 750000;
+    const dpr = Math.min(devicePixelRatio || 1, 1.25, Math.sqrt(budget / (width * height)));
+    const w = Math.max(1, Math.round(width*dpr)), h = Math.max(1, Math.round(height*dpr));
+    if (canvas.width !== w || canvas.height !== h) { canvas.width = w; canvas.height = h; }
+    gl.viewport(0,0,w,h);
+  }
+  function render() {
+    if (!ready || lost) return;
+    gl.uniform2f(res,canvas.width,canvas.height); gl.uniform1f(time,elapsed*.001);
+    gl.uniform2f(ptr,pointer.x,pointer.y); gl.drawArrays(gl.TRIANGLES,0,6); canvas.style.visibility='visible';
+  }
+  function draw(now) {
+    frame=0;
+    if(document.hidden || paused || motion.matches || !ready || lost) return;
+    if(now-last >= 1000/30) {
+      if(previous) elapsed += Math.min(now-previous,80);
+      previous=now; last=now;
+      pointer.x += (pointer.tx-pointer.x)*.045; pointer.y += (pointer.ty-pointer.y)*.045;
+      render();
+    }
+    frame=requestAnimationFrame(draw);
+  }
+  function resume() {
+    cancelAnimationFrame(frame); frame=0; previous=0; last=0;
+    if(document.hidden || !ready || lost) return;
+    resize(); render();
+    if(!paused && !motion.matches) frame=requestAnimationFrame(draw);
+  }
+  let resizing=0;
+  addEventListener('resize',()=>{cancelAnimationFrame(resizing);resizing=requestAnimationFrame(resume)},{passive:true});
+  document.addEventListener('visibilitychange',resume); motion.addEventListener('change',resume);
+  addEventListener('portfolio-motion',e=>{paused=Boolean(e.detail);resume()});
+  canvas.addEventListener('webglcontextlost',e=>{e.preventDefault();lost=true;cancelAnimationFrame(frame);canvas.style.visibility='hidden'});
+  canvas.addEventListener('webglcontextrestored',()=>{lost=false;init();resume()});
+  addEventListener('pointermove',e=>{if(e.pointerType==='mouse'&&!paused&&!motion.matches){pointer.tx=e.clientX/Math.max(1,innerWidth);pointer.ty=1-e.clientY/Math.max(1,innerHeight)}},{passive:true});
+  init(); resume();
 })();

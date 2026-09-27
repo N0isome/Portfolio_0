@@ -7,9 +7,10 @@
       name="description"
       content="Proyecto conceptual de Nicolás Cortez. NOISOME / Sesiones. Datos ficticios guardados solo en este navegador."
     />
-    <title>NOISOME / Sesiones — Proyecto de Nicolás Cortez</title>
+    <title>NOISOME — Sound &amp; independent culture</title>
     <link rel="icon" href="assets/favicon.svg" />
     <link rel="stylesheet" href="demo.css" />
+    <link rel="stylesheet" href="commerce-brand.css" />
     <script type="module" src="js/commerce.js"></script>
   </head>
   <body class="artist">
@@ -17,13 +18,12 @@
     <div class="demo-strip">
       <a href="proyectos.html">← Portfolio / Nicolás Cortez</a
       ><span
-        >Concepto funcional · Solo datos ficticios · Guardado en este
-        navegador</span
+        >Estudio de marca / Concepto interactivo</span
       >
     </div>
     <header class="demo-header">
       <div class="container header-row between">
-        <a class="logo" href="demo-artista.html">NOISOME</a>
+        <a class="logo" href="demo-artista.html" aria-label="NOISOME, inicio">NOISOME<span class="brand-dot" aria-hidden="true"></span></a>
         <nav aria-label="Artista">
           <a href="#music">Escuchar</a><a href="#merch">Objetos</a
           ><a href="#archivo">Archivo</a>
@@ -40,26 +40,21 @@
           este proyecto.
         </p></noscript
       >
-      <section class="artist-hero">
-        <div>
-          <span class="eyebrow">Sonido / Espacio / Identidad</span>
-          <h1>Fuera<br />de <em>órbita.</em></h1>
-          <p>
-            Una exploración entre música y cultura visual. Concepto editorial
-            para un universo sonoro propio.
-          </p>
-          <a class="btn accent" href="#music">Entrar en la sesión ↓</a>
+      <section class="artist-hero" aria-labelledby="artist-title">
+        <div class="artist-title">
+          <span class="eyebrow">Música independiente / Cultura de club</span>
+          <h1 id="artist-title">EL RITMO<br />DE LO <em>CRUDO.</em></h1>
+          <div class="hero-bottom"><p>Texturas que se sienten.<br />Frecuencias que permanecen.</p><a class="btn accent" href="#music">Escuchar la sesión <span aria-hidden="true">↗</span></a></div>
         </div>
-        <img
-          src="assets/stage.webp"
-          alt="Fotografía de un concierto, referencia de ambiente; no retrata a NOISOME"
-          width="1400"
-          height="1400"
-          fetchpriority="high"
-        />
+        <figure class="artist-image">
+          <img src="assets/stage.webp" alt="Luces y público en un concierto; fotografía de ambiente" width="1400" height="1400" fetchpriority="high" />
+          <figcaption>Entre el pulso y el silencio. <span>NOISOME / VISUAL STUDY</span></figcaption>
+          <span class="image-index" aria-hidden="true">N.</span>
+        </figure>
       </section>
+      <div class="sound-line" aria-hidden="true"><span>TEXTURA</span><i></i><span>RITMO</span><i></i><span>ESPACIO</span><i></i><span>INDEPENDENCIA</span></div>
       <section class="section" id="music">
-        <span class="eyebrow">Sesión de prueba</span>
+        <div class="section-heading"><span class="eyebrow">Sala de escucha</span><span class="edition">ESTUDIO / 001</span></div>
         <div class="audio-layout">
           <img
             src="assets/studio.webp"
@@ -69,12 +64,11 @@
             loading="lazy"
           />
           <div>
-            <h2 style="font-size: 32px; margin-bottom: 10px">
+            <h2 class="session-title">
               Estudio de señal
             </h2>
             <p class="small">
-              Muestra sintetizada para esta demo. No es un lanzamiento de
-              NOISOME.
+              Una pieza sintetizada para explorar esta experiencia. Audio de demostración.
             </p>
             <audio
               controls
@@ -91,19 +85,18 @@
       </section>
       <section class="section" id="merch">
         <div class="row between">
-          <h2>Objetos de sesión.</h2>
+          <h2>El sonido,<br /><em>en otra forma.</em></h2>
           <span id="result-count" class="small"></span>
         </div>
         <p>
-          Selección conceptual. Fotografías ilustrativas, sin stock ni ventas
-          reales.
+          Ediciones para llevar el universo de la sesión fuera del estudio. Catálogo conceptual; sin ventas reales.
         </p>
         <div class="products" id="products"></div>
       </section>
       <section class="section" id="archivo">
         <span class="eyebrow">Archivo visual</span>
         <p class="editorial-note">
-          El silencio también<br />es parte del sonido.
+          Lo que queda<br />después del <em>ruido.</em>
         </p>
         <div class="photo-banner">
           <img
@@ -122,7 +115,7 @@
     </main>
     <footer class="demo-footer">
       <div class="container">
-        <span>Proyecto conceptual. Sin operaciones reales.</span>
+        <span class="footer-signature">NOISOME / INDEPENDENT CULTURE</span><span>Concepto de marca. Sin operaciones reales.</span>
         <div>
           <a href="proyectos.html">Volver a proyectos</a> ·
           <a href="terminos.html">Términos</a> ·

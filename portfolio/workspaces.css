@@ -1,0 +1,31 @@
+/* Individual product brands, built on shared functional primitives. */
+.dental{--paper:#f1ebe3;--ink:#57313c;--muted:#725d62;--line:#d5c4bf;--accent:#e4c0b8;--surface:#faf7f1;--radius:2px}
+.quote{--paper:#ece7dd;--ink:#492430;--muted:#715d63;--line:#d0c2bd;--accent:#d1a29b;--surface:#f9f5ee;--radius:0}
+.agora-portal{--paper:#f6efe3;--ink:#632b2d;--muted:#75585a;--line:#dfc9be;--accent:#e9b29d;--surface:#fffaf1;--radius:0}
+.dental .demo-strip,.quote .demo-strip,.agora-portal .demo-strip{background:#35101b;color:#f2e5d6}
+.dental .logo,.quote .logo,.agora-portal .logo{font:italic 48px/.85 Georgia,serif;letter-spacing:-.055em}
+.brand-sub{display:block;font:8px/1.4 Arial,sans-serif;letter-spacing:.16em;margin-top:11px}
+.dental .demo-header,.quote .demo-header,.agora-portal .demo-header{background:var(--surface);padding-block:30px}
+.dental .workspace-head,.quote .workspace-head{padding:64px 0 30px;border-bottom:1px solid var(--line)}
+.dental .workspace-head h1,.quote .workspace-head h1{font-size:clamp(44px,5.7vw,78px);font-weight:400;letter-spacing:-.055em;line-height:1.02;margin-bottom:24px}
+.workspace-head h1 em{font-family:Georgia,serif;font-weight:400}
+.workspace-head>p{max-width:550px;font-size:14px}
+.dental .stats{margin:30px 0}.dental .stat{border:0;border-top:2px solid var(--line);background:transparent;padding:22px 0}
+.dental .stat strong{font:46px/1.1 Georgia,serif;margin-bottom:9px}
+.dental .day{border-radius:0;border-top:3px solid #b27a7c;padding:22px}
+.dental .day h3{text-transform:capitalize;font-size:15px}
+.dental .appointment{background:#eee0db;border-color:#ac6878;border-radius:0}
+.dental .appointment small{color:#714e58}.dental .appointment[data-state=Confirmada]{background:#e4e8df;border-color:#7b8770}.dental .appointment[data-state=Cancelada]{background:#eeeae6;border-color:#aaa09c}
+.dental .week-tools{margin:34px 0 24px}.dental .week-label{font-family:Georgia,serif;font-size:23px;font-weight:400}
+.quote .workspace-head{margin-bottom:30px}.quote .notice{background:transparent;border:0;border-left:2px solid #92545f;padding-block:0;font-size:12px;max-width:800px}
+.quote .surface{padding:28px;border:0;border-top:1px solid var(--line)}.quote .surface h2{font-family:Georgia,serif}
+.quote .totals p:last-child{font:30px Georgia,serif;background:#512536;color:#f6eadc;margin:12px -12px -12px;padding:18px 12px}
+.agora-hero{background:#963e3e;color:#fff1dd;padding:70px 0}.agora-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:70px;align-items:center}
+.agora-hero h1{font:400 clamp(48px,5.4vw,78px)/1.03 Georgia,serif;letter-spacing:-.055em;max-width:12ch;margin-bottom:25px}
+.agora-hero p{color:#f0d8ca;max-width:480px;font-size:15px}.agora-hero .eyebrow{color:#f0caba}.agora-hero .btn.primary{background:#f6ead5;color:#602a30;border-color:#f6ead5;margin-top:18px}
+.portal-art{position:relative;aspect-ratio:1;display:grid;place-items:center;overflow:hidden}.portal-art i{position:absolute;width:50%;height:88%;border:1px solid #f5cead88;border-radius:180px 180px 0 0;bottom:-10%}.portal-art i:nth-child(1){left:0}.portal-art i:nth-child(2){left:25%}.portal-art i:nth-child(3){left:50%}.portal-art>span{font:italic 160px Georgia,serif;letter-spacing:-.12em;padding-right:.1em;z-index:1}
+.portal-banner{padding:25px 0;border-bottom:1px solid var(--line);font-size:13px}.agora-portal h2{font-family:Georgia,serif;letter-spacing:-.04em}.agora-portal .filters{align-items:end}.agora-portal .search-label{max-width:none;min-width:min(100%,260px)}.agora-portal .filters>.row{margin-bottom:0}.agora-portal .service-card{border:0;border-top:2px solid #b67869;min-height:280px;padding:28px;background:#f0e6d8}.agora-portal .service-card h3{font:30px Georgia,serif}.agora-portal .service-card .eyebrow{font-size:9px;margin-bottom:32px}.agora-portal .service-card .btn{margin-top:auto;background:transparent;border-color:#c6a294}.agora-portal .service-card p{line-height:1.7}.agora-portal #editor-form{max-width:850px}.agora-portal .faq{border-top:1px solid var(--line)}
+.btn{transition:background .2s,border-color .2s,transform .2s}.btn:hover:not(:disabled){border-color:var(--ink)}input:focus-visible,textarea:focus-visible,select:focus-visible{outline-color:#9a4f5b}dialog{border-radius:2px}.dialog-head{align-items:start!important}.dialog-head h2{font-family:Georgia,serif}.day,.stat{min-width:0}.day h3,.appointment{overflow-wrap:anywhere}
+@media(max-width:760px){.agora-grid{grid-template-columns:1fr .5fr;gap:20px}.agora-hero{padding:48px 0}.agora-hero h1{font-size:46px}.portal-art>span{font-size:90px}.dental .workspace-head,.quote .workspace-head{padding-top:40px}.dental .workspace-head h1,.quote .workspace-head h1{font-size:50px}.dental .demo-header,.quote .demo-header,.agora-portal .demo-header{padding-block:24px}.dental .logo,.quote .logo,.agora-portal .logo{font-size:42px}.quote .surface{padding:22px}.agora-portal .service-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.agora-grid{grid-template-columns:1fr}.portal-art{display:none}.agora-hero h1{max-width:13ch}.agora-portal .service-grid{grid-template-columns:1fr}.dental .stat strong{font-size:33px}.dental .stat span{font-size:11px}.dental .workspace-head h1,.quote .workspace-head h1{font-size:44px}.quote .quote-item{grid-template-columns:repeat(2,minmax(0,1fr))}.agora-portal .demo-header nav{gap:16px;font-size:12px}.dental .header-row .muted{display:none}}
+@media print{.quote .workspace-head{padding:0;border:0}.quote .totals p:last-child{background:none;color:#111}.quote .workspace-head h1{font:24pt Georgia,serif}}
