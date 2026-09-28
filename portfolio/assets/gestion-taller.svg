@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="970" viewBox="0 0 900 970">
+<rect width="900" height="970" fill="#111f37"/>
+<path d="M560 -80 920 280v130L430-80ZM-100 930 280 550v140l-380 380Z" fill="#203958"/>
+<g fill="#f4f3ee" font-family="Arial,Helvetica,sans-serif">
+<text x="62" y="85" font-size="15" letter-spacing="3">WEB COMERCIAL / GESTIÓN VEHICULAR</text>
+<text x="58" y="228" font-size="92" font-weight="700" letter-spacing="-5">GESTIÓN</text>
+<text x="58" y="325" font-size="112" font-weight="700" letter-spacing="-6">TALLER<tspan fill="#e8594a">.</tspan></text>
+<text x="64" y="383" font-size="21" fill="#b9c8db">Cada vehículo. Cada etapa. En un solo lugar.</text>
+</g>
+<g transform="translate(65 464)">
+<rect width="770" height="348" rx="12" fill="#f1f3f6"/>
+<path d="M12 0H758Q770 0 770 12v45H0V12Q0 0 12 0Z" fill="#e0e6ee"/>
+<circle cx="25" cy="27" r="4" fill="#8a9aae"/><circle cx="42" cy="27" r="4" fill="#8a9aae"/><circle cx="59" cy="27" r="4" fill="#8a9aae"/>
+<g font-family="Arial,Helvetica,sans-serif" fill="#172a44">
+<text x="30" y="106" font-size="29" font-weight="700">El avance, a la vista.</text>
+<text x="30" y="139" font-size="15" fill="#637187">SEGUIMIENTO DEL VEHÍCULO</text>
+<rect x="30" y="173" width="710" height="84" rx="8" fill="white"/>
+<path d="M70 215h590" stroke="#d8e0e9" stroke-width="4"/>
+<path d="M70 215h296" stroke="#e8594a" stroke-width="4"/>
+<g fill="#e8594a"><circle cx="70" cy="215" r="10"/><circle cx="217" cy="215" r="10"/><circle cx="365" cy="215" r="13"/></g>
+<g fill="#c5cfda"><circle cx="512" cy="215" r="10"/><circle cx="660" cy="215" r="10"/></g>
+<text x="30" y="304" font-size="23" font-weight="700">En reparación</text><text x="465" y="302" font-size="15" fill="#637187">VISTA ILUSTRATIVA DEL FLUJO</text>
+</g></g>
+<text x="64" y="896" font-family="Arial,Helvetica,sans-serif" font-size="16" fill="#b9c8db" letter-spacing="2">TALLER MECÁNICO ARTIGAS / DEMOSTRATIVO</text>
+</svg>
