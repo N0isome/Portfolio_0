@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#050505" />
+    <meta
+      name="description"
+      content="ÍCARO — concepto digital del álbum de Rayokuza × Sajo Bkulé. Explora la identidad, el tracklist y una tienda de demostración."
+    />
+    <title>ÍCARO — Rayokuza × Sajo Bkulé</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23050505'/%3E%3Cpath d='M32 5l6 16 17-6-9 15 14 10-18 1 2 18-12-13-12 13 2-18-18-1 14-10-9-15 17 6z' fill='%23FC0E09'/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,700;6..96,900&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Saltar al contenido</a>
+    <div class="concept-banner">Concepto de portfolio · La colección y los precios son demostrativos <a href="https://github.com/N0isome/Icaro-web" target="_blank" rel="noopener noreferrer">Código fuente ↗</a></div>
+
+    <header class="site-header" id="site-header">
+      <a class="portfolio-back" href="../../index.html#trabajo">← Portfolio de Nicolás Cortez</a>
+      <a class="brand" href="#inicio" aria-label="ÍCARO, volver al inicio">
+        <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+          <path d="M32 5l6 16 17-6-9 15 14 10-18 1 2 18-12-13-12 13 2-18-18-1 14-10-9-15 17 6z" />
+        </svg>
+        <span>ÍCARO</span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span>Menú</span>
+        <i aria-hidden="true"></i>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Navegación principal">
+        <a href="#lanzamiento">Lanzamiento</a>
+        <a href="#artista">El proyecto</a>
+        <a href="#merch">Merch</a>
+        <a href="#tour">Fechas</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <button class="cart-button" type="button" data-open-cart aria-label="Abrir carrito, 0 productos">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.2 10.2a2 2 0 0 0 2 1.6h7.9a2 2 0 0 0 1.9-1.4L21 8H7M10 20h.01M18 20h.01" /></svg>
+        <span class="cart-count" aria-hidden="true">0</span>
+      </button>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="inicio" aria-labelledby="hero-title">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Rayokuza × Sajo Bkulé · Nuevo álbum</p>
+          <h1 id="hero-title">ÍCARO</h1>
+          <p class="hero-statement">El sonido<br />toma otra forma.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#streaming">Escuchar álbum</a>
+            <a class="button button-ghost" href="#tracklist">Ver tracklist</a>
+          </div>
+          <dl class="release-meta" aria-label="Información del lanzamiento">
+            <div><dt>Formato</dt><dd>14 tracks</dd></div>
+            <div><dt>Estado</dt><dd>Ya disponible</dd></div>
+          </dl>
+        </div>
+
+        <div class="hero-art reveal" data-delay="1">
+          <div class="art-frame">
+            <img src="assets/icaro-cover.webp" alt="Portada del álbum ÍCARO: retrato artístico con maquillaje rojo" width="1600" height="1600" fetchpriority="high" />
+            <span class="art-index">001 / 014</span>
+          </div>
+          <p class="vertical-manifesto" aria-hidden="true">MÚSICA PARA CAER MÁS ALTO</p>
+        </div>
+        <p class="hero-number" aria-hidden="true">01</p>
+      </section>
+
+      <section class="streaming-strip" id="streaming" aria-label="Escuchar en plataformas">
+        <p>Disponible ahora</p>
+        <div class="platform-links">
+          <a href="https://open.spotify.com/search/%C3%8Dcaro%20Rayokuza" target="_blank" rel="noreferrer">Spotify ↗</a>
+          <a href="https://music.apple.com/search?term=%C3%8Dcaro%20Rayokuza" target="_blank" rel="noreferrer">Apple Music ↗</a>
+          <a href="https://www.youtube.com/results?search_query=%C3%8Dcaro+Rayokuza" target="_blank" rel="noreferrer">YouTube ↗</a>
+          <a class="audio-toggle" href="https://www.youtube.com/results?search_query=%C3%8Dcaro+Rayokuza+Dilema+Camina+Ni%C3%B1a" target="_blank" rel="noreferrer"><span class="audio-icon" aria-hidden="true">▶</span> Abrir videos</a>
+        </div>
+      </section>
+
+      <section class="album-section" id="lanzamiento" aria-labelledby="album-title">
+        <div class="section-heading reveal">
+            <p class="eyebrow dark">Concepto visual · Edición física</p>
+          <h2 id="album-title">EL DISCO</h2>
+          <p>Una pieza visual y sonora diseñada para existir fuera de la pantalla.</p>
+        </div>
+
+        <div class="album-grid">
+          <div class="tracklist reveal" id="tracklist">
+            <ol aria-label="Tracklist completo de ÍCARO">
+              <li><span>01</span><strong>Despegando</strong><small>ft. Airospvce</small><em>Sin audio</em></li>
+              <li><span>02</span><strong>Ícaro</strong><small>ft. Franz Mezko · scratch DJ Pérez</small><em>Sin audio</em></li>
+              <li><span>03</span><strong>Sergio Tacchini</strong><small>Rayokuza × Sajo Bkulé</small><em>Sin audio</em></li>
+              <li><span>04</span><strong>Deformo</strong><small>ft. Ed Neidhardt</small><em>Sin audio</em></li>
+              <li><span>05</span><strong>Se queda contigo</strong><small>ft. Ed Neidhardt y Martin Benavides</small><em>Sin audio</em></li>
+              <li><span>06</span><strong>Jaula</strong><small>Interludio</small><em>Sin audio</em></li>
+              <li><span>07</span><strong>Calma</strong><small>Rayokuza × Sajo Bkulé</small><em>Sin audio</em></li>
+              <li><span>08</span><strong>Feel Like Violet</strong><small>ft. Spec</small><em>Sin audio</em></li>
+              <li><span>09</span><strong>Fly</strong><small>scratch DJ Pérez</small><em>Sin audio</em></li>
+              <li><span>10</span><strong>Flashback</strong><small>scratch DJ Pérez</small><em>Sin audio</em></li>
+              <li><span>11</span><strong>Solita</strong><small>ft. Ana Tijoux</small><em>Sin audio</em></li>
+              <li><span>12</span><strong>Dilema</strong><small>scratch DJ Pérez</small><a href="https://www.youtube.com/results?search_query=Rayokuza+Dilema+Sajo+Bkul%C3%A9" target="_blank" rel="noreferrer">Video ↗</a></li>
+              <li><span>13</span><strong>Camina Niña</strong><small>scratch DJ Pérez</small><a href="https://www.youtube.com/results?search_query=Rayokuza+Camina+Ni%C3%B1a+Sajo+Bkul%C3%A9" target="_blank" rel="noreferrer">Video ↗</a></li>
+              <li><span>14</span><strong>Arauco</strong><small>ft. Ed Neidhardt y Martin Benavides</small><em>Sin audio</em></li>
+            </ol>
+          </div>
+
+          <figure class="vinyl-figure reveal" data-delay="1">
+            <img src="assets/icaro-vinyl.webp" alt="Edición física de ÍCARO con vinilo, funda y arte gráfico" width="1600" height="1200" loading="lazy" />
+            <figcaption>Vinilo negro · Gatefold · Arte exclusivo</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="artist-section" id="artista" aria-labelledby="artist-title">
+        <div class="artist-image reveal">
+          <img src="assets/icaro-back.webp" alt="Contraportada y dirección gráfica del álbum ÍCARO" width="1572" height="1572" loading="lazy" />
+          <span aria-hidden="true">CAER / SUBIR / ROMPER</span>
+        </div>
+        <div class="artist-copy reveal" data-delay="1">
+          <p class="eyebrow">El proyecto</p>
+          <h2 id="artist-title">DOS VOCES.<br />UNA CAÍDA<br />HACIA ARRIBA.</h2>
+          <p class="lead">ÍCARO reúne a Rayokuza y Sajo Bkulé en una obra colaborativa donde la contradicción es lenguaje: fragilidad y filo, crudeza y precisión, impulso y vértigo.</p>
+          <p>La identidad visual traduce esa tensión con retratos intervenidos, superficies frías y un rojo que funciona como señal. Cada pieza —música, fotografía y objeto— forma parte de un mismo universo.</p>
+          <a class="text-link" href="#galeria">Entrar al archivo visual <span>↘</span></a>
+        </div>
+      </section>
+
+      <section class="gallery-section" id="galeria" aria-labelledby="gallery-title">
+        <div class="section-heading compact reveal">
+          <p class="eyebrow">Archivo 01—03</p>
+          <h2 id="gallery-title">IMÁGENES DE UNA CAÍDA</h2>
+        </div>
+        <div class="gallery-grid">
+          <figure class="gallery-main reveal"><img src="assets/icaro-cover.webp" alt="Retrato principal de la campaña ÍCARO" width="1600" height="1600" loading="lazy" /><figcaption>01 · Retrato / Portada</figcaption></figure>
+          <figure class="reveal" data-delay="1"><img src="assets/icaro-back.webp" alt="Diseño editorial de contraportada ÍCARO" width="1572" height="1572" loading="lazy" /><figcaption>02 · Dirección de arte</figcaption></figure>
+          <figure class="reveal" data-delay="2"><img src="assets/icaro-vinyl.webp" alt="Vinilo y empaque físico de ÍCARO" width="1600" height="1200" loading="lazy" /><figcaption>03 · Objeto / Edición</figcaption></figure>
+        </div>
+      </section>
+
+      <section class="merch-section" id="merch" aria-labelledby="merch-title">
+        <div class="merch-head reveal">
+          <div>
+            <p class="eyebrow dark">Colección conceptual · Edición limitada</p>
+            <h2 id="merch-title">OBJETOS<br />PARA CAER.</h2>
+          </div>
+          <p>La gráfica de ÍCARO se extiende a una colección física austera, táctil y numerada.</p>
+        </div>
+
+        <div class="filters" role="group" aria-label="Filtrar productos">
+          <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">Todo</button>
+          <button class="filter" type="button" data-filter="ropa" aria-pressed="false">Ropa</button>
+          <button class="filter" type="button" data-filter="musica" aria-pressed="false">Música</button>
+          <button class="filter" type="button" data-filter="accesorios" aria-pressed="false">Accesorios</button>
+        </div>
+
+        <div class="product-grid" aria-live="polite">
+          <article class="product-card reveal" data-category="musica" data-id="vinilo" data-name="Vinilo ÍCARO 180 g" data-price="32000">
+            <div class="product-image"><img src="assets/icaro-vinyl.webp" alt="Vinilo ÍCARO edición física" width="1600" height="1200" loading="lazy" /><span>Edición limitada</span></div>
+            <div class="product-info"><div><p>01 / Música</p><h3>Vinilo ÍCARO · 180 g</h3></div><strong>$32.000 CLP</strong></div>
+            <button class="add-to-cart" type="button">Añadir al carrito <span>+</span></button>
+          </article>
+
+          <article class="product-card reveal" data-delay="1" data-category="ropa" data-id="polera" data-name="Polera Caer Más Alto" data-price="22000">
+            <div class="product-image product-image-shirt"><img src="assets/icaro-cover.webp" alt="Gráfica frontal para la polera Caer Más Alto" width="1600" height="1600" loading="lazy" /><span>Exclusivo</span></div>
+            <div class="product-info"><div><p>02 / Ropa</p><h3>Polera “Caer Más Alto”</h3></div><strong>$22.000 CLP</strong></div>
+            <button class="add-to-cart" type="button">Añadir al carrito <span>+</span></button>
+          </article>
+
+          <article class="product-card reveal" data-delay="2" data-category="ropa" data-id="hoodie" data-name="Hoodie Ruptura mínima" data-price="42000">
+            <div class="product-image product-image-hoodie"><img src="assets/icaro-back.webp" alt="Gráfica de la hoodie Ruptura mínima" width="1572" height="1572" loading="lazy" /><span>Numerado</span></div>
+            <div class="product-info"><div><p>03 / Ropa</p><h3>Hoodie “Ruptura mínima”</h3></div><strong>$42.000 CLP</strong></div>
+            <button class="add-to-cart" type="button">Añadir al carrito <span>+</span></button>
+          </article>
+
+          <article class="product-card reveal" data-category="accesorios" data-id="poster" data-name="Póster Archivo 01" data-price="14000">
+            <div class="product-image product-image-poster"><img src="assets/icaro-reference.webp" alt="Póster editorial Archivo 01 de ÍCARO" width="1536" height="1024" loading="lazy" /><span>50 copias</span></div>
+            <div class="product-info"><div><p>04 / Accesorios</p><h3>Póster “Archivo 01”</h3></div><strong>$14.000 CLP</strong></div>
+            <button class="add-to-cart" type="button">Añadir al carrito <span>+</span></button>
+          </article>
+        </div>
+        <p class="shop-note">Concepto visual: productos, stock y valores son demostrativos.</p>
+      </section>
+
+      <section class="tour-section" id="tour" aria-labelledby="tour-title">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Próximas fechas</p>
+          <h2 id="tour-title">VER ÍCARO<br />EN VIVO.</h2>
+        </div>
+        <div class="tour-list reveal" data-delay="1">
+          <article><time>TBA</time><div><h3>Fechas no confirmadas</h3><p>Módulo preparado para conectar agenda real, venta de entradas o inscripción.</p></div><a href="#contacto">Avísame</a></article>
+        </div>
+      </section>
+
+      <section class="newsletter" id="contacto" aria-labelledby="newsletter-title">
+        <p class="newsletter-kicker">NO TE QUEDES ABAJO.</p>
+        <div>
+          <h2 id="newsletter-title">NUEVA MÚSICA.<br />FECHAS. OBJETOS.</h2>
+          <form class="newsletter-form" novalidate>
+            <label for="email">Tu correo</label>
+            <div class="input-row">
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="correo@ejemplo.cl" required />
+              <button type="submit">Entrar al archivo <span>→</span></button>
+            </div>
+            <p class="form-status" role="status"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand footer-brand" href="#inicio"><span>ÍCARO</span></a>
+      <div class="social-links" aria-label="Redes sociales">
+        <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">Instagram ↗</a>
+        <a href="https://www.tiktok.com/" target="_blank" rel="noreferrer">TikTok ↗</a>
+        <a href="https://www.youtube.com/" target="_blank" rel="noreferrer">YouTube ↗</a>
+      </div>
+      <div class="footer-legal">
+        <p>© <span id="year"></span> ÍCARO.</p>
+        <button type="button" data-legal="terms">Términos demo</button><button type="button" data-legal="shipping">Envíos demo</button>
+      </div>
+    </footer>
+
+    <dialog class="cart-dialog" id="cart-dialog" aria-labelledby="cart-title">
+      <div class="cart-head"><h2 id="cart-title">Tu selección</h2><button type="button" data-close-cart aria-label="Cerrar carrito">×</button></div>
+      <div class="cart-items"></div>
+      <div class="cart-empty">Tu carrito está vacío.</div>
+      <div class="cart-total"><span>Total conceptual</span><strong>$0 CLP</strong></div>
+      <button class="button button-primary checkout" type="button" disabled>Descargar selección</button>
+      <p>Esta tienda es una demostración visual. No se realizará ningún cobro.</p>
+    </dialog>
+
+    <div class="toast" role="status" aria-live="polite"></div>
+    <script src="script.js" defer></script>
+  </body>
+</html>
