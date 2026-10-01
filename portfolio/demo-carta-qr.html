@@ -125,5 +125,7 @@ function toast(msg){var t=document.getElementById("toast");t.textContent=msg;t.c
 renderMenu();updateCart();
 try{new QRCode(document.getElementById("qr"),{text:location.href,width:118,height:118,colorDark:"#102436",colorLight:"#ffffff",correctLevel:QRCode.CorrectLevel.M})}catch(e){document.getElementById("qr").textContent="QR"}
 </script>
+<script src="/js/vercel-analytics.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
