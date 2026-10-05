@@ -1,6 +1,5 @@
 
     (() => {
-      const reduced = matchMedia('(prefers-reduced-motion: reduce)');
       const canvas = document.getElementById('waveCanvas');
       if (!canvas) return;
       const hero = canvas.closest('.hero');
@@ -101,7 +100,7 @@
 
       function animate(timestamp) {
         raf = 0;
-        if (!active || document.hidden || reduced.matches || document.body.classList.contains('paused')) {
+        if (!active || document.hidden || document.body.classList.contains('paused')) {
           previousTime = 0;
           return;
         }
@@ -121,7 +120,7 @@
       }
 
       function resume() {
-        if (!raf && active && !document.hidden && !reduced.matches && !document.body.classList.contains('paused')) {
+        if (!raf && active && !document.hidden && !document.body.classList.contains('paused')) {
           raf = requestAnimationFrame(animate);
         }
       }
@@ -140,7 +139,7 @@
       // Arrastre únicamente en el espacio libre del hero con mouse.
       // El scroll táctil, los enlaces y la selección de texto siguen funcionando.
       hero.addEventListener('pointerdown', event => {
-        if (event.pointerType !== 'mouse' || event.button !== 0 || event.target !== hero || reduced.matches) return;
+        if (event.pointerType !== 'mouse' || event.button !== 0 || event.target !== hero || document.body.classList.contains('paused')) return;
         isDragging = true;
         prevMouseX = event.clientX;
         prevMouseY = event.clientY;
@@ -167,9 +166,6 @@
       new ResizeObserver(resize).observe(canvas);
       document.addEventListener('visibilitychange', () => {
         if (document.hidden) stop(); else resume();
-      });
-      reduced.addEventListener('change', () => {
-        if (reduced.matches) { stop(); isDragging = false; render(); } else resume();
       });
       new MutationObserver(() => { if(document.body.classList.contains('paused')) stop(); else resume(); }).observe(document.body,{attributes:true,attributeFilter:['class']});
       function updatePalette() {
