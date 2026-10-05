@@ -2,6 +2,7 @@
     (() => {
       const reduced = matchMedia('(prefers-reduced-motion: reduce)');
       const canvas = document.getElementById('waveCanvas');
+      if (!canvas) return;
       const hero = canvas.closest('.hero');
       const ctx = canvas.getContext('2d');
       if (!ctx) return;
@@ -171,6 +172,14 @@
         if (reduced.matches) { stop(); isDragging = false; render(); } else resume();
       });
       new MutationObserver(() => { if(document.body.classList.contains('paused')) stop(); else resume(); }).observe(document.body,{attributes:true,attributeFilter:['class']});
+      function updatePalette() {
+        const palette = getComputedStyle(canvas.closest('.opening'));
+        CONFIG.color = palette.getPropertyValue('--wire-primary').trim() || '#754637';
+        CONFIG.secondaryColor = palette.getPropertyValue('--wire-secondary').trim() || '#646e60';
+        render();
+      }
+      document.addEventListener('portfolio-theme-change', updatePalette);
+      updatePalette();
       resize();
       resume();
     })();
