@@ -1,0 +1,47 @@
+:root{--porcelain:#fff;--cobalt:#234cd1;--workshop:#17242f;--mist:#e9eef5;--join:#b9914d;--graphite:#596672;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:var(--porcelain);color:var(--workshop);font:16px/1.75 Verdana,sans-serif}
+h1,h2,h3{font-family:'Trebuchet MS',sans-serif;line-height:1.15;margin:0}
+h2{font-size:clamp(28px,3.1vw,42px);letter-spacing:-1px}
+h3{font-size:23px;letter-spacing:-.4px}
+p{max-width:68ch;margin:20px 0 0}
+a{color:inherit;text-underline-offset:5px}
+a:focus-visible{outline:3px solid var(--cobalt);outline-offset:6px}
+.wrap{max-width:1280px;margin:auto;padding-left:clamp(22px,5vw,64px);padding-right:clamp(22px,5vw,64px)}
+.skip{position:absolute;left:24px;top:12px;z-index:5;padding:10px 16px;background:var(--porcelain);transform:translateY(-160%)}
+.skip:focus{transform:none}
+.project-header{display:flex;justify-content:space-between;align-items:center;gap:24px;min-height:94px;font-size:14px}
+.project-header a{color:var(--cobalt)}
+.hero{background:var(--cobalt);color:var(--porcelain)}
+.hero-layout{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center;padding-top:62px;padding-bottom:62px}
+.hero h1{font-size:clamp(54px,6.7vw,90px);letter-spacing:-3px}
+.hero .lead{font-family:'Trebuchet MS',sans-serif;font-size:clamp(30px,3.2vw,44px);line-height:1.12;letter-spacing:-1px;margin-top:28px}
+.hero-copy>p:not(.lead){max-width:46ch;font-size:15px}
+.button{display:inline-block;background:var(--porcelain);color:var(--cobalt);padding:13px 20px;border-radius:6px;font-size:14px;font-weight:700;text-decoration:none;margin-top:30px}
+.button:hover{text-decoration:underline}
+.hero a:focus-visible{outline-color:var(--porcelain)}
+.hero .hero-note{color:#e9eef5;font-size:12px!important;margin-top:20px;line-height:1.7}
+.object{margin:0;border-left:3px solid var(--join)}
+.object img{display:block;width:100%;height:auto;aspect-ratio:1.1;object-fit:cover}
+.object figcaption{font-size:11px;line-height:1.7;padding:16px 0 0 20px;max-width:48ch;color:#e9eef5}
+.journey,.technical,.scope{padding-top:88px;padding-bottom:88px}
+.section-intro{max-width:670px}
+.section-intro p{color:var(--graphite)}
+.steps{list-style:none;counter-reset:step;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;padding:0;margin:48px 0 0}
+.steps li{counter-increment:step;border-top:2px solid var(--mist);padding-top:24px;min-width:0}
+.steps li::before{content:counter(step);display:block;color:var(--cobalt);font-family:'Trebuchet MS',sans-serif;font-size:22px;font-weight:700;margin-bottom:18px}
+.steps p,.features p{font-size:14px;color:var(--graphite);margin-top:16px}
+.implementation{background:var(--mist);padding-top:80px;padding-bottom:80px}
+.features{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;margin-top:48px}
+.features article{min-width:0}
+.technical{display:grid;grid-template-columns:1.4fr 1fr;gap:76px;align-items:start}
+.technical p{font-size:14px;color:var(--graphite)}
+.verification{border-left:3px solid var(--cobalt);padding-left:28px}
+.verification a{display:inline-block;color:var(--cobalt);margin-top:24px;font-size:14px}
+.scope{display:grid;grid-template-columns:1fr 1.4fr;gap:60px;border-top:1px solid #d7dfe8}
+.scope-copy p{margin:0 0 24px;color:var(--graphite);font-size:14px}
+.text-link{color:var(--cobalt);font-size:14px}
+.project-footer{display:flex;justify-content:space-between;align-items:center;gap:32px;padding-top:30px;padding-bottom:40px;font-size:12px;color:var(--graphite);border-top:1px solid #d7dfe8}
+.project-footer a{color:var(--cobalt)}
+@media(max-width:900px){.hero-layout{gap:28px}.technical{gap:40px}.steps,.features{gap:24px}}
+@media(max-width:720px){.project-header{min-height:76px;font-size:12px}.hero-layout{grid-template-columns:1fr;gap:40px;padding-top:44px;padding-bottom:44px}.hero h1{font-size:clamp(52px,12vw,80px)}.object{max-width:520px}.object img{aspect-ratio:1.45}.journey,.technical,.scope{padding-top:56px;padding-bottom:56px}.implementation{padding-top:56px;padding-bottom:56px}.steps,.features,.technical,.scope{grid-template-columns:1fr}.steps,.features{gap:32px}.scope{gap:28px}.project-footer{align-items:flex-start;flex-direction:column;gap:18px}}

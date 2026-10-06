@@ -35,3 +35,11 @@ node tools/interface-tests.cjs
 ```
 
 Las pruebas DOM no sustituyen la revisión visual ni las pruebas en dispositivos físicos.
+
+
+
+## Kintsugi: caso de ejemplo
+
+Kintsugi se incorpora como quinto proyecto en la portada y tiene una presentación pública en `proyectos/kintsugi.html`. El código completo del MVP se conserva en [`../projects/kintsugi`](../projects/kintsugi), fuera de la carpeta que Vercel publica.
+
+La aplicación utiliza React, TypeScript, Vinext, Workers, D1 y R2. El caso del portafolio enlaza su código y documentación; no intenta ejecutar un Worker dentro del hosting estático de Vercel. El despliegue operativo mantiene acceso privado. IA, pagos Stripe y CAD quedan pendientes.

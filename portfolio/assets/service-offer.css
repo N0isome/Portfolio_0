@@ -248,3 +248,7 @@ html.motion-paused{scroll-behavior:auto}html.motion-paused *,html.motion-paused 
 html.tab-hidden *,html.tab-hidden ::before,html.tab-hidden ::after{animation-play-state:paused!important}
 
 .caso .in{z-index:3}.caso .foot{padding-right:72px}.hi h2,.wm{transition:transform .45s ease-out}
+
+
+/* Kintsugi conserva el azul y la fotografía de su identidad. */
+.case-kintsugi{background:#234cd1}.case-kintsugi .case-visual{transform:none;border-left:3px solid #b9914d;box-shadow:none}.case-kintsugi .case-visual:hover{transform:none}.case-kintsugi .kintsugi-subtitle{font-family:'Trebuchet MS',sans-serif;text-transform:none;font-size:.72em;font-weight:700;color:#fff}.case-kintsugi h2{max-width:1050px}.case-kintsugi .foot a{border-bottom-color:#fff}

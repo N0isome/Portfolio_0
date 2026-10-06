@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Kintsugi — Proyecto de Nicolás Cortez</title>
+  <meta name="description" content="MVP para conectar objetos que necesitan reparación con reparadores cercanos. Solicitudes, propuestas, seguimiento y reseñas, con datos persistentes.">
+  <meta name="theme-color" content="#234cd1">
+  <link rel="stylesheet" href="../assets/kintsugi-project.css">
+</head>
+<body>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+  <header class="project-header wrap">
+    <a href="../index.html#casos">Volver al portafolio</a>
+    <span>Nicolás Cortez</span>
+  </header>
+  <main id="contenido">
+    <section class="hero" aria-labelledby="titulo">
+      <div class="wrap hero-layout">
+        <div class="hero-copy">
+          <h1 id="titulo">Kintsugi.</h1>
+          <p class="lead">Un objeto.<br>Otra oportunidad.</p>
+          <p>Una persona tiene algo que reparar. Un taller sabe cómo hacerlo. Kintsugi conecta ambos y conserva el recorrido hasta que el trabajo termina.</p>
+          <a class="button" href="https://github.com/N0isome/Portfolio_0/tree/main/projects/kintsugi" target="_blank" rel="noopener noreferrer">Ver código en GitHub</a>
+          <p class="hero-note">Proyecto de ejemplo. MVP con persistencia y autorización en el servidor.</p>
+        </div>
+        <figure class="object">
+          <img src="../assets/kintsugi/vase.webp" width="960" height="640" alt="Jarrón de cerámica con un borde roto, junto a las piezas desprendidas">
+          <figcaption>El objeto es el punto de partida. Fotografía generada para un caso ficticio del MVP.</figcaption>
+        </figure>
+      </div>
+    </section>
+    <section class="journey wrap" aria-labelledby="recorrido">
+      <div class="section-intro">
+        <h2 id="recorrido">De la foto a la reparación.</h2>
+        <p>El dueño decide qué propuesta aceptar. El reparador define el alcance, el precio y el plazo.</p>
+      </div>
+      <ol class="steps">
+        <li><h3>Publicar el objeto</h3><p>Subir una fotografía, describir el problema y elegir la comuna.</p></li>
+        <li><h3>Comparar propuestas</h3><p>Revisar qué incluye el trabajo y aceptar una propuesta. Las demás se cierran.</p></li>
+        <li><h3>Confirmar y evaluar</h3><p>Marcar la reparación como terminada y dejar una reseña vinculada al trabajo.</p></li>
+      </ol>
+    </section>
+    <section class="implementation" aria-labelledby="funciones">
+      <div class="wrap">
+        <div class="section-intro">
+          <h2 id="funciones">Lo que hace esta versión.</h2>
+          <p>El MVP resuelve el intercambio entre personas y reparadores. Cada acción comprueba quién puede realizarla.</p>
+        </div>
+        <div class="features">
+          <article><h3>Fotos con acceso controlado</h3><p>Archivos JPG, PNG o WebP de hasta 6 MB, validados por su contenido. El servidor permite leer una foto según la relación con la solicitud.</p></article>
+          <article><h3>Reparadores cercanos</h3><p>Perfiles con especialidades y precio de referencia. Búsqueda por comuna o ubicación del dispositivo, con distancia aproximada en línea recta.</p></article>
+          <article><h3>Un estado consistente</h3><p>Una propuesta por reparador y una aceptada por solicitud, incluso ante aceptaciones simultáneas. Retiro de propuestas, cancelación y reseñas al finalizar.</p></article>
+        </div>
+      </div>
+    </section>
+    <section class="technical wrap" aria-labelledby="construccion">
+      <div>
+        <h2 id="construccion">Interfaz y datos.<br>El mismo recorrido.</h2>
+        <p>React y TypeScript sobre Vinext. Cloudflare Workers ejecuta la aplicación, D1 conserva los datos y R2 almacena las fotografías privadas. La identidad del despliegue procede de ChatGPT.</p>
+        <p>El esquema inicial de Supabase y una migración de refuerzo se incluyen como referencia para una futura adaptación. El MVP operativo utiliza D1 y R2.</p>
+      </div>
+      <aside class="verification" aria-labelledby="validacion">
+        <h3 id="validacion">Verificación del servidor</h3>
+        <p>52 comprobaciones de integración cubren permisos, fotos privadas, propuestas, aceptación concurrente, estados, reseñas y persistencia.</p>
+        <a href="https://github.com/N0isome/Portfolio_0/blob/main/projects/kintsugi/docs/verification.md" target="_blank" rel="noopener noreferrer">Leer la verificación</a>
+      </aside>
+    </section>
+    <section class="scope wrap" aria-labelledby="alcance">
+      <h2 id="alcance">El alcance del ejemplo.</h2>
+      <div class="scope-copy">
+        <p>Los casos ficticios permiten recorrer una reparación sin contratar un servicio. Sus reseñas no modifican la reputación real.</p>
+        <p>El MVP no integra diagnóstico con IA, pagos con Stripe ni generación de archivos CAD. Aceptar una propuesta asigna la reparación; no realiza un cobro. El despliegue operativo conserva su acceso privado.</p>
+        <a class="text-link" href="https://github.com/N0isome/Portfolio_0/blob/main/projects/kintsugi/README.md" target="_blank" rel="noopener noreferrer">Consultar instalación y alcance en GitHub</a>
+      </div>
+    </section>
+  </main>
+  <footer class="project-footer wrap"><span>Kintsugi / Proyecto de desarrollo</span><a href="../index.html#casos">Explorar los demás proyectos</a></footer>
+  <script src="../js/vercel-analytics.js"></script>
+  <script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
