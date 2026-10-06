@@ -164,7 +164,9 @@
     const y = scrollY;
     const maximum = root.scrollHeight - innerHeight;
     $('#bar').style.transform = 'scaleX(' + (maximum > 0 ? Math.max(0, Math.min(y / maximum, 1)) : 0) + ')';
-    header.classList.toggle('hide', active && y > previousY && y > innerHeight * .6 && !menuOpen && !header.contains(document.activeElement));
+    if (y !== previousY) {
+      header.classList.toggle('hide', active && y > previousY && y > innerHeight * .6 && !menuOpen && !header.contains(document.activeElement));
+    }
     const velocity = y - previousY;
     previousY = y;
     if (!active) return;
@@ -206,6 +208,7 @@
   addEventListener('resize', () => { updateStage(); schedule(); }, { passive: true });
   addEventListener('pointermove', event => {
     if (!active || !fine.matches || event.pointerType === 'touch') return;
+    if (event.clientY < 85) header.classList.remove('hide');
     root.classList.add('hc');
     pointer = { x: event.clientX, y: event.clientY, hero: hero.contains(event.target), interactive: !!event.target.closest('a,button,.tile') };
     schedule();
@@ -237,6 +240,7 @@
       all('.rv').filter(element => !element.classList.contains('in')).forEach(element => observer.observe(element));
     } else all('.rv').forEach(element => element.classList.add('in'));
     if (!active) {
+      header.classList.remove('hide');
       root.classList.remove('hc');
       pointer = null;
       root.style.setProperty('--sk', '0');

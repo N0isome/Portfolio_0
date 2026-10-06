@@ -247,4 +247,4 @@ html.motion-paused{scroll-behavior:auto}html.motion-paused *,html.motion-paused 
 
 html.tab-hidden *,html.tab-hidden ::before,html.tab-hidden ::after{animation-play-state:paused!important}
 
-.caso .in{z-index:3}.hi h2,.wm{transition:transform .45s ease-out}
+.caso .in{z-index:3}.caso .foot{padding-right:72px}.hi h2,.wm{transition:transform .45s ease-out}
