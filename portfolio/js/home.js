@@ -1,2 +1,57 @@
-(()=>{const reduced=matchMedia('(prefers-reduced-motion: reduce)');const sculpture=document.querySelector('.sculpture');for(let i=0;sculpture&&i<12;i++){const s=document.createElement('i');s.className='slab';s.style.setProperty('--i',i);sculpture.append(s)}const motion=document.querySelector('#motion');let choice=null;const motionKey='nc-portfolio-motion';try{const saved=localStorage.getItem(motionKey);if(saved==='on'||saved==='off')choice=saved==='on'}catch(_){}function updateMotion(){const off=choice===null?reduced.matches:!choice;document.body.classList.toggle('paused',off);document.body.classList.toggle('motion-enabled',!off);motion.setAttribute('aria-pressed',String(off));motion.textContent=off?'Activar movimiento':'Pausar movimiento';motion.disabled=false}motion.addEventListener('click',()=>{choice=document.body.classList.contains('paused');try{localStorage.setItem(motionKey,choice?'on':'off')}catch(_){}updateMotion()});reduced.addEventListener('change',()=>{choice=null;try{localStorage.removeItem(motionKey)}catch(_){}updateMotion()});updateMotion();const filters=[...document.querySelectorAll('[data-filter]')];function count(){const visible=[...document.querySelectorAll('.project')].filter(p=>!p.hidden);document.querySelector('.status').textContent=visible.length+' experiencias disponibles, incluida la colección de cartas QR.'}filters.forEach(b=>b.addEventListener('click',()=>{filters.forEach(x=>x.setAttribute('aria-pressed',String(x===b)));document.querySelectorAll('.project').forEach(p=>{p.hidden=b.dataset.filter!=='all'&&p.dataset.category!==b.dataset.filter});document.querySelector('.gallery').classList.toggle('filtered',b.dataset.filter!=='all');count()}));count()})();
-(()=>{const reduce=matchMedia('(prefers-reduced-motion: reduce)');const progress=document.createElement('div');progress.className='scroll-progress';progress.setAttribute('aria-hidden','true');document.body.append(progress);let ticking=false;function update(){const max=document.documentElement.scrollHeight-innerHeight;progress.style.transform='scaleX('+(max>0?scrollY/max:0)+')';ticking=false}addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(update)}},{passive:true});addEventListener('resize',update);update();if(!reduce.matches&&'IntersectionObserver'in window){const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.remove('reveal-pending');e.target.classList.add('reveal-visible');observer.unobserve(e.target)}}),{threshold:.08});document.querySelectorAll('.project,.about h2,.about-bottom,.contact').forEach(el=>{el.classList.add('reveal-pending');observer.observe(el)});reduce.addEventListener('change',()=>{if(reduce.matches)document.querySelectorAll('.reveal-pending').forEach(el=>el.classList.remove('reveal-pending'))})}document.querySelectorAll('[data-filter]').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.project:not([hidden])').forEach(el=>{el.classList.remove('reveal-pending','filter-arrival');void el.offsetWidth;if(!reduce.matches&&!document.body.classList.contains('paused'))el.classList.add('filter-arrival')});requestAnimationFrame(update)}))})();
+(() => {
+  'use strict';
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  const motion = document.getElementById('motion');
+  const motionKey = 'nc-portfolio-motion';
+  let choice = null;
+  try { const saved = localStorage.getItem(motionKey); if (saved === 'on' || saved === 'off') choice = saved === 'on'; } catch (_) {}
+  function updateMotion() {
+    const off = choice === null ? reduced.matches : !choice;
+    document.body.classList.toggle('paused', off);
+    document.body.classList.toggle('motion-enabled', !off);
+    motion.setAttribute('aria-pressed', String(off));
+    motion.textContent = off ? 'Activar movimiento' : 'Pausar movimiento';
+  }
+  motion.addEventListener('click', () => { choice = document.body.classList.contains('paused'); try { localStorage.setItem(motionKey, choice ? 'on' : 'off'); } catch (_) {} updateMotion(); });
+  reduced.addEventListener('change', () => { choice = null; try { localStorage.removeItem(motionKey); } catch (_) {} updateMotion(); });
+  updateMotion();
+  const filters = [...document.querySelectorAll('[data-filter]')];
+  const projects = [...document.querySelectorAll('.project')];
+  const status = document.querySelector('.status');
+  filters.forEach(button => button.addEventListener('click', () => {
+    filters.forEach(filter => filter.setAttribute('aria-pressed', String(filter === button)));
+    projects.forEach(project => { project.hidden = button.dataset.filter !== 'all' && project.dataset.category !== button.dataset.filter; project.classList.remove('reveal-pending'); });
+    const count = projects.filter(project => !project.hidden).length;
+    status.textContent = count + (count === 1 ? ' ejemplo para explorar.' : ' ejemplos para explorar.');
+    updateProgress();
+  }));
+  const config = window.PORTFOLIO_CONFIG;
+  const number = config && config.whatsappVerified && /^\d{10,15}$/.test(config.whatsappNumber) ? config.whatsappNumber : null;
+  if (number) document.querySelectorAll('[data-whatsapp]').forEach(link => { link.href = 'https://wa.me/' + number + '?text=' + encodeURIComponent(link.dataset.whatsapp); });
+  const contact = document.getElementById('contact-whatsapp');
+  const topics = [...document.querySelectorAll('[data-topic]')];
+  const note = document.getElementById('contact-choice');
+  const notes = {
+    'Una web nueva': 'Cuéntame qué hace tu negocio y qué te gustaría mostrar en tu primera web.',
+    'Renovar mi web': 'Puedes compartirme tu página actual y contarme qué te gustaría mejorar.',
+    'Un catálogo o herramienta': 'Cuéntame qué tarea necesitas facilitar: productos, cotizaciones, pedidos o seguimiento.',
+    'Necesito orientación': 'Podemos partir por tu idea, aunque todavía no sepas qué tipo de web necesitas.'
+  };
+  topics.forEach(button => button.addEventListener('click', () => {
+    topics.forEach(topic => topic.setAttribute('aria-pressed', String(topic === button)));
+    const message = 'Hola Nicolás, vi tu portafolio y me gustaría conversar sobre una web para mi negocio. Me interesa: ' + button.dataset.topic + '.';
+    if (number) contact.href = 'https://wa.me/' + number + '?text=' + encodeURIComponent(message);
+    note.textContent = notes[button.dataset.topic];
+  }));
+  const progress = document.createElement('div');
+  progress.className = 'scroll-progress'; progress.setAttribute('aria-hidden', 'true'); document.body.append(progress);
+  let ticking = false;
+  function updateProgress() { const max = document.documentElement.scrollHeight - innerHeight; progress.style.transform = 'scaleX(' + (max > 0 ? scrollY / max : 0) + ')'; ticking = false; }
+  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(updateProgress); } }, { passive: true });
+  addEventListener('resize', updateProgress); updateProgress();
+  if (!reduced.matches && !document.body.classList.contains('paused') && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (!entry.isIntersecting) return; entry.target.classList.remove('reveal-pending'); entry.target.classList.add('reveal-visible'); observer.unobserve(entry.target); }), { threshold: .06 });
+    document.querySelectorAll('.service,.project,.process-grid li,.about-grid,.faq,.contact-grid').forEach(element => { element.classList.add('reveal-pending'); observer.observe(element); });
+    reduced.addEventListener('change', () => { if (reduced.matches) document.querySelectorAll('.reveal-pending').forEach(element => element.classList.remove('reveal-pending')); });
+  }
+})();
