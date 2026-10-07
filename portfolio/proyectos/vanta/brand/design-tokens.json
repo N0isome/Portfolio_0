@@ -1,0 +1,48 @@
+{
+  "brand": "VANTA",
+  "version": "3.0",
+  "tagline": "VANTA: Donde la luz esculpe la sombra.",
+  "colors": {
+    "void": "#08070B",
+    "surface": "#121015",
+    "ivory": "#EEE7E2",
+    "violet": "#B99AFF",
+    "cyan": "#57E8E1",
+    "magenta": "#F257C9",
+    "copper": "#C8835D"
+  },
+  "typography": {
+    "editorial": "Nimbus Roman Regular",
+    "editorialItalic": "Nimbus Roman Italic",
+    "body": "URW Gothic Book",
+    "technical": "URW Gothic Book",
+    "displayTrackingEm": -0.055,
+    "bodyLineHeight": 1.6,
+    "uiEmphasis": "URW Gothic Demi"
+  },
+  "spacingPx": [
+    8,
+    16,
+    24,
+    40,
+    64,
+    96,
+    144
+  ],
+  "motion": {
+    "uiMs": [
+      160,
+      240
+    ],
+    "sceneMs": [
+      500,
+      800
+    ],
+    "ambientSec": 20,
+    "reducedMotion": true,
+    "pauseOnHidden": true,
+    "manualPause": true,
+    "explicitOptIn": true
+  },
+  "conceptual": true
+}
