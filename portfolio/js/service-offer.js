@@ -63,30 +63,24 @@
   if (contactReady) all('[data-whatsapp]').forEach(link => {
     link.href = contactURL('Hola Nicolás, vi tu web y quiero conversar sobre un proyecto para mi negocio.');
   });
-  const form = $('#f');
-  const result = $('#ok');
-  form.addEventListener('input', () => { result.hidden = true; });
-  form.addEventListener('submit', event => {
-    event.preventDefault();
-    if (!form.reportValidity()) return;
-    if (!contactReady) return;
-    const values = new FormData(form);
-    const name = String(values.get('name') || '').trim();
-    if (!name) { $('#name').value = ''; $('#name').reportValidity(); return; }
-    const business = String(values.get('business') || '').trim();
-    const website = String(values.get('website') || '').trim();
-    const service = String(values.get('service') || '').trim();
-    const details = String(values.get('details') || '').trim();
-    const message = ['Hola Nicolás, soy ' + name + (business ? ', de ' + business : '') + '.',
-      'Me interesa: ' + service + '.', website ? 'Mi web o Instagram: ' + website : '', details].filter(Boolean).join('\n\n');
-    $('#message-preview').textContent = message;
-    $('#prepared-link').href = contactURL(message);
-    result.hidden = false;
-  });
-  all('[data-service]').forEach(link => link.addEventListener('click', () => {
-    $('#service').value = link.dataset.service;
-    result.hidden = true;
-  }));
+let selectedService='Una web nueva', selectedFeature='';
+for(const input of all('input[name=service]'))input.addEventListener('change',()=>{selectedService=input.value;selectedFeature='';$('#selected-plan').textContent='';$('#ok').hidden=true;});
+for(const link of all('[data-service]'))link.addEventListener('click',()=>{
+ selectedService=link.dataset.service;selectedFeature=link.dataset.feature||'';
+ const value=selectedService.includes('Carta')||selectedService.includes('Catálogo')?'Catálogo o carta QR':selectedService.includes('Automatización')?'Automatización o integración':selectedService.includes('Renovar')?'Renovar mi web':'Una web nueva';
+ for(const input of all('input[name=service]'))input.checked=input.value===value;
+ $('#selected-plan').textContent=`Seleccionado: ${selectedService}${selectedFeature?' / '+selectedFeature:''}`;
+ $('#ok').hidden=true;
+});
+const number=window.PORTFOLIO_CONFIG?.whatsappVerified?window.PORTFOLIO_CONFIG.whatsappNumber:null;
+function updateLink(){if(!number)return;$('#prepared-link').href=`https://wa.me/${number}?text=${encodeURIComponent($('#message-preview').value)}`;}
+$('#message-preview').addEventListener('input',updateLink);
+$('#f').addEventListener('submit',e=>{
+ e.preventDefault();if(!number)return;
+ const business=$('#business').value.trim(), details=$('#details').value.trim();
+ $('#message-preview').value=['Hola Nicolás, vi tu portafolio.','Me interesa: '+selectedService+'.',selectedFeature?'Función: '+selectedFeature+'.':'',business?'Mi negocio o enlace: '+business:'',details?'Mi idea: '+details:''].filter(Boolean).join('\n\n');
+ updateLink();$('#ok').hidden=false;$('#message-preview').focus();
+});
 
   // Laboratorio: controles reales y respuestas orientativas, sin simular una IA.
   $('#wt').addEventListener('input', event => { $('#vt').style.fontWeight = event.target.value; });
