@@ -20,6 +20,7 @@
 <script src="js/theme.js"></script>
 <script defer="" src="js/config.js"></script>
 <script defer="" src="js/service-offer.js?v=4"></script>
+<link href="assets/software.css?v=1" rel="stylesheet"/>
 <link href="assets/revision-sections.css?v=1" rel="stylesheet"/><script src="js/vercel-analytics.js"></script>
 <script defer src="/_vercel/insights/script.js"></script>
 </head>
@@ -33,7 +34,7 @@
 <button aria-controls="mn" aria-expanded="false" class="bur" id="bur" type="button"><span id="bl">MENÚ</span><i aria-hidden="true"></i></button>
 </div></header>
 <nav aria-label="Navegación principal" class="menu" id="mn" inert=""><div class="wrap"><ul>
-<li><a class="l" href="#servicios">Mi enfoque</a></li><li><a class="l" href="#lab">Laboratorio</a></li><li><a class="l" href="#casos">Proyectos</a></li><li><a class="l" href="#planes">Precios</a></li><li><a class="l" href="#contacto">Contacto</a></li></ul>
+<li><a class="l" href="#servicios">Mi enfoque</a></li><li><a class="l" href="#lab">Laboratorio</a></li><li><a class="l" href="#casos">Proyectos</a></li><li><a class="l" href="#software">Software</a></li><li><a class="l" href="#planes">Precios</a></li><li><a class="l" href="#contacto">Contacto</a></li></ul>
 <div class="soc"><a href="https://github.com/N0isome" rel="noopener noreferrer" target="_blank">GitHub</a><a href="mailto:ni.cortez@duocuc.cl">Correo</a><a data-whatsapp="" href="https://wa.me/56945857340" rel="noopener noreferrer" target="_blank">WhatsApp</a></div></div></nav>
 <main id="contenido">
 <section aria-labelledby="hero-title" class="hero" id="inicio">
@@ -76,6 +77,45 @@
 <article class="caso case-kintsugi"><div aria-hidden="true" class="gh">05</div><a aria-label="Explorar el proyecto Kintsugi" class="case-visual" href="https://nicolas-cortez.vercel.app/proyectos/kintsugi.html"><img alt="Jarrón de cerámica con un borde roto, caso ficticio de Kintsugi" height="640" loading="lazy" src="assets/kintsugi/vase.webp" width="960"/></a><div class="wrap in"><div class="top"><span>Proyecto MVP · Reparaciones</span><span>05 / 06</span></div><div><h2 class="big">Kintsugi.<br/><span class="kintsugi-subtitle">Otra oportunidad.</span></h2><div class="foot"><span>Objetos, reparadores y propuestas. Un recorrido con datos persistentes.</span><a href="https://nicolas-cortez.vercel.app/proyectos/kintsugi.html">Explorar proyecto ↗</a></div></div></div></article>
 <article class="caso case-shift"><div aria-hidden="true" class="gh">06</div><a aria-label="Explorar SHIFT, demo de producto" class="case-visual shift-preview" href="proyectos/shift/index.html"><img alt="SHIFT, teclado mecánico negro con acento lima" decoding="async" height="1024" loading="lazy" src="proyectos/shift/assets/shift-hero.webp" width="1536"/><span class="shift-preview-wordmark">SHIFT.</span></a><div class="wrap in"><div class="top"><span>Proyecto demo · Tecnología y producto</span><span>06 / 06</span></div><div><h2 class="big">SHIFT.<br/><em>Precisión al tacto.</em></h2><div class="foot"><span>Una página de producto con ficha técnica, cambio de tema y configurador de acabado y pulsación.</span><a href="proyectos/shift/index.html">Explorar proyecto</a></div></div></div></article>
 </div>
+<section class="section software-section" id="software" aria-labelledby="software-title">
+  <div class="wrap">
+    <div class="section-heading">
+      <div><p class="eyebrow">Software / herramientas propias</p><h2 id="software-title">Ideas que se<br/><em>vuelven software.</em></h2></div>
+      <p>Herramientas en desarrollo para crear, experimentar y resolver tareas concretas.</p>
+    </div>
+    <article class="software-product" aria-labelledby="juce-title">
+      <div>
+        <span class="software-status">Demo en desarrollo</span>
+        <h3 id="juce-title">JUCE PLUGGIN</h3>
+        <p class="software-signature">BY FR3DO - Demo en pañales</p>
+        <p class="software-description">Un plugin para capturar audio estéreo en tiempo real dentro del DAW y convertirlo en muestras WAV. Ajusta la ganancia, monitorea la entrada y revisa la forma de onda de cada toma. Después puedes guardar el archivo en una carpeta o arrastrarlo a otra pista para seguir creando.</p>
+        <ul class="software-features" aria-label="Características"><li>VST3 · Windows x64</li><li>C++20 / JUCE</li><li>WAV · 24-bit</li><li>Modo claro y oscuro</li></ul>
+        <div class="software-actions">
+          <a class="cta" href="software/juce-pluggin/JUCE-PLUGGIN-Windows-x64-Demo.zip" download>Descargar plugin ↗</a>
+          <a class="software-link" href="software/juce-pluggin/index.html">Probar demo web ↗</a>
+          <a class="software-link" href="software/juce-pluggin/LoopCapture-JUCE-Source.zip" download>Código fuente ↓</a>
+        </div>
+        <p class="software-note">El plugin recibe la entrada del canal del DAW, incluida una entrada de cable virtual, sin abrir el navegador. Esta primera compilación de Windows está disponible para pruebas; falta comprobarla en FL Studio. La demo web usa los permisos de captura del navegador.</p>
+      </div>
+      <figure class="software-preview">
+        <svg role="img" aria-labelledby="juce-preview-title" viewBox="0 0 570 390" xmlns="http://www.w3.org/2000/svg">
+          <title id="juce-preview-title">Vista ilustrativa de JUCE PLUGGIN: ganancia, medidores y muestra WAV debajo de la captura</title>
+          <rect width="570" height="390" rx="10" fill="#34313b"/>
+          <g font-family="'Inter Tight',sans-serif"><text x="24" y="38" fill="#f2eef8" font-size="21" font-weight="700">JUCE <tspan fill="#b7a5e8">PLUGGIN</tspan></text><text x="24" y="61" fill="#bab3c7" font-size="10">BY FR3DO - Demo en pañales</text><rect x="465" y="24" width="82" height="27" rx="4" fill="#46414f"/><text x="479" y="42" fill="#f2eef8" font-size="10">Modo claro</text></g>
+          <rect x="20" y="86" width="154" height="168" rx="6" fill="#2b2831"/><text x="34" y="109" fill="#bab3c7" font-size="10" font-family="monospace">GANANCIA</text>
+          <circle cx="97" cy="168" r="40" fill="#423c4e" stroke="#72677f" stroke-width="2"/><circle cx="97" cy="168" r="30" fill="#302b39"/><path d="M97 133v12" stroke="#c3b1ee" stroke-width="4"/><text x="84" y="173" fill="#e9e5f3" font-size="15" font-family="monospace">0.0</text><text x="91" y="193" fill="#bab3c7" font-size="10" font-family="monospace">dB</text>
+          <rect x="35" y="224" width="12" height="12" rx="2" fill="#b7a5e8"/><text x="57" y="234" fill="#d6d1df" font-size="11" font-family="sans-serif">Monitorear</text>
+          <rect x="190" y="86" width="360" height="118" rx="6" fill="#18171d"/><g font-family="monospace" font-size="9" fill="#9d93b2"><text x="204" y="105">ENTRADA · L / R</text><text x="453" y="105">00:12.480</text></g>
+          <path d="M205 146h320" stroke="#47414f" stroke-width="1"/><path d="M205 146l8 -3 6 10 7 -26 7 42 8 -57 8 64 8 -45 8 27 8 -15 8 6 8 -26 8 35 8 -53 8 70 8 -44 8 18 8 -9 8 13 8 -35 8 52 8 -42 8 10 8 9 8 -22 8 33 8 -17 8 2 8 -20 8 26 8 -13 8 3 10 -2" fill="none" stroke="#b7a5e8" stroke-width="2"/>
+          <g font-family="monospace" font-size="9" fill="#9d93b2"><text x="204" y="190">L</text><text x="363" y="190">R</text></g><rect x="218" y="181" width="117" height="9" rx="2" fill="#47414f"/><rect x="218" y="181" width="80" height="9" rx="2" fill="#b7a5e8"/><rect x="376" y="181" width="117" height="9" rx="2" fill="#47414f"/><rect x="376" y="181" width="69" height="9" rx="2" fill="#b7a5e8"/>
+          <rect x="190" y="218" width="96" height="35" rx="5" fill="#b7a5e8"/><circle cx="209" cy="235" r="5" fill="#312d3a"/><text x="222" y="239" fill="#312d3a" font-size="12" font-family="sans-serif" font-weight="700">Record</text><text x="414" y="239" fill="#bab3c7" font-size="10" font-family="monospace">WAV / PCM24</text>
+          <rect x="20" y="274" width="530" height="96" rx="6" fill="#211e29"/><g font-family="sans-serif" font-size="11" fill="#e4dcec"><text x="34" y="297">MUESTRA GRABADA</text><text x="35" y="352" fill="#a89eb9">Arrastra la muestra al DAW</text></g><path d="M34 319h366" stroke="#47414f"/><path d="M34 319l10 -3 10 10 10 -23 10 32 10 -25 10 17 10 -6 10 4 10 -20 10 29 10 -35 10 24 10 -14 10 15 10 -22 10 31 10 -18 10 12 10 -26 10 17 10 14 10 -29 10 31 10 -15 10 6 10 -17 10 14 10 -6 10 8 10 -12 10 4 10 2 10 -3" stroke="#b7a5e8" fill="none"/><rect x="422" y="306" width="109" height="39" rx="5" fill="#46414f"/><text x="436" y="330" fill="#ece4f7" font-size="11" font-family="sans-serif">Guardar como</text>
+        </svg>
+        <figcaption>Interfaz Rack · vista ilustrativa. La demo captura tu propia entrada.</figcaption>
+      </figure>
+    </article>
+  </div>
+</section>
 <section class="section qr-section" id="qr"><div class="wrap"><div class="section-heading"><div><p class="eyebrow">Restaurantes y empresas / 04</p><h2>Cartas digitales QR.<br/><em>Y automatizaciones.</em></h2></div><p>Platos, precios y categorías desde un enlace o QR. También podemos conectar pedidos por WhatsApp y automatizar consultas con un alcance definido.</p></div><div class="qr-grid"><a class="qr-card" href="https://nicolas-cortez.vercel.app/demo-carta-qr.html" rel="noopener noreferrer" target="_blank"><img alt="Vista ilustrativa de una carta digital Orilla: navegación, platos y precios" height="460" loading="lazy" src="assets/qr-0.svg" width="640"/><div><h3>Orilla</h3><span>Abrir carta demo ↗</span></div></a><a class="qr-card" href="https://nicolas-cortez.vercel.app/demo-carta-02.html" rel="noopener noreferrer" target="_blank"><img alt="Vista ilustrativa de una carta digital Marea: navegación, platos y precios" height="460" loading="lazy" src="assets/qr-1.svg" width="640"/><div><h3>Marea</h3><span>Abrir carta demo ↗</span></div></a><a class="qr-card" href="https://nicolas-cortez.vercel.app/demo-carta-03.html" rel="noopener noreferrer" target="_blank"><img alt="Vista ilustrativa de una carta digital Fuego: navegación, platos y precios" height="460" loading="lazy" src="assets/qr-2.svg" width="640"/><div><h3>Fuego</h3><span>Abrir carta demo ↗</span></div></a></div><div class="qr-details"><p><b>Para tu restaurante</b><br/>Carta móvil, categorías, precios y enlace listo para compartir o imprimir en un QR.</p><p><b>Para tu empresa</b><br/>Solicitudes, formularios y conexiones con herramientas. Definimos qué proceso conviene automatizar.</p><a class="cta" data-service="Catálogo o carta QR" href="#formulario">Consultar mi carta QR ↗</a></div></div></section>
 <section class="section" id="planes"><div class="wrap"><div class="section-heading"><div><p class="eyebrow">Precios de lanzamiento / 05</p><h2>Planes y precios<br/><em>de lanzamiento.</em></h2></div><p>Valores en pesos chilenos. Alcance y precio final confirmados en una propuesta antes de comenzar.</p></div><div class="plans">
 <article class="plan"><div class="plan-top"><span>01 / Presencia</span><span class="discount">Precio de lanzamiento</span></div><h3>Web de una página</h3><p>Para presentar tu negocio y recibir consultas.</p><div class="price"><small>Desde</small><strong>$100.000</strong><span>CLP / desarrollo</span></div><p class="reference">Desarrollo / dominio no incluido</p><ul><li>Hasta 5 secciones en una página</li><li>Diseño para celular y computador</li><li>WhatsApp y enlaces de contacto</li><li>Metadatos y animación de entrada</li></ul><a class="cta" data-service="Web de una página — desde $100.000" href="#formulario">Consultar este plan ↗</a></article>
