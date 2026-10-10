@@ -259,3 +259,5 @@ html.tab-hidden *,html.tab-hidden ::before,html.tab-hidden ::after{animation-pla
 
 /* SHIFT: muestra de producto */
 .case-shift{background:#08080a;--acc:#d4ff00}.case-shift em{color:#d4ff00}.case-shift .case-visual{transform:none;border-color:#d4ff0033;box-shadow:none}.case-shift .case-visual:hover{transform:translateY(-4px)}.case-shift .case-visual img{object-position:center 70%}.shift-preview-wordmark{position:absolute;left:8%;top:9%;font-family:Arial,sans-serif;font-size:clamp(45px,6vw,100px);font-weight:800;letter-spacing:-.1em;color:#f4f4f6}.case-shift .foot a{border-bottom-color:#d4ff00}.case-shift .gh{color:#d4ff0010}
+
+.case-shus{background:#130b13}.case-shus .case-visual{width:45%;height:70%;top:14%;transform:rotate(-4deg);background:#120b12}.case-shus .case-visual:hover{transform:rotate(0) scale(1.025)}.case-shus .case-visual img{object-fit:cover}
